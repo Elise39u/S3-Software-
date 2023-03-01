@@ -26,9 +26,9 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       working-directory: DotNet BackEnd/Apibackend
-    # - name: Test
-    #  run: dotnet test --no-build --verbosity normal
-    #  working-directory: Backend/API/DALLayerTest
-    # - name: Test
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      working-directory: DotNet BackEnd/Apibackend/SongApiTest
+    #  - name: Test
     #  run: dotnet test --no-build --verbosity normal
     #  working-directory: Backend/API/ControllerTest
