@@ -4,10 +4,6 @@ import '../css/songOverview.css'
 import {Button, Table} from "react-bootstrap";
 
 class SongSummary extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
