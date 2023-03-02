@@ -1,0 +1,43 @@
+.songTitle {
+    border-bottom: 5px deepskyblue;
+    border-bottom-style: double;
+
+    margin: 0.5%;
+    padding: 0.5%;
+    color: purple;
+}
+
+.ogTitle {
+    border-bottom: 1px deepskyblue;
+    border-bottom-style: dashed;
+
+    margin: 0.5%;
+    padding: 0.5%;
+    color: purple;
+}
+
+.videoInfo {
+    margin: 0.5%;
+    padding: 0.5%;
+    color: purple;
+}
+
+.ytVideo {
+    width: 45%;
+    margin: 0.5%;
+    padding: 0.5%;
+}
+
+.imgRight {
+    float: right;
+    width: 45%;
+    margin: 0.5%;
+    padding: 0.5%;
+}
+
+.titleSong {
+    margin-top: -12.5%;
+}
+
+.albumCover {
+}

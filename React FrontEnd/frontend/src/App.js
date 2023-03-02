@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Menu from '../src/components/menu'
+import SongInfo from '../src/components/songInfo'
+import SongSummary from '../src/components/songSummary'
+import '../src/css/songOverview.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Menu />
+        <h1 className="songTitle"> Odds and Ends</h1>
+        <SongInfo/>
+        <SongSummary/>
     </div>
   );
 }

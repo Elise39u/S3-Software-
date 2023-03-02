@@ -5,6 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #009b54!important;
+}
+
+.navbar .navbar-brand {
+  color: purple!important;
+}
+
+.navbarA {
+  color: #9500E5!important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.navbarA:hover {
+  color: white!important;
+  font-weight: 1000;
+  text-decoration: underline;
+}
+
+.navbar-text {
+  color: purple!important;
+}
+
+.nav-link {
+  color: purple!important;
+}
+
+.tell {
+  color: #9500E5!important;
+  font-weight: 1000;
 }
 
 code {
