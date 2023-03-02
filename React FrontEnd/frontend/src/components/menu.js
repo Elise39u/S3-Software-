@@ -12,7 +12,7 @@ function navMenu() {
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                        Language you can switch to: <a className="navbarA" href="#">JP</a> Your currently are on <span className="tell">EN</span>
+                        Language you can switch to: <a className="navbarA">JP</a> Your currently are on <span className="tell">EN</span>
                     </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
