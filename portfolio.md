@@ -69,3 +69,37 @@ Voor ip wil ik het volgende af hebben aan het volgende moment dat ik dit schrijf
 -Wireframe ontwerp voor song overzichts pagina   
 -Overzichts pagina verwerkt in de FE met dummy data
 -CI getest voor beide de FE en BE met Tests 
+
+# Week 3
+Ik typ dit later dan geplant omdat ik vrijdag uitgeput was van een reis dag op donderdag     
+Maar hier is wat ik heb gedaan    
+
+## GP
+Gp is vrij kort en simpel:     
+-Eerste Refinment gehad    
+-UI schetsen gemaakt    
+-Point bingo gedaan aka scrum bingo    
+-Tasks gemaakt voor de User storys    
+
+## IP    
+Voor ip heb ik het volgende gedaan:    
+-UI schetsen verder uitgewerkt voor mij songsoverzicht pagina
+-Opnieuw gekeken naar User storys en ingericht op een more agile methode van wat wilt de klant.     
+-FE pagina gemaakt met dummy data en gepusht naar git       
+-CI getest voor de FE en werkend gekregen    
+
+# Plan voor aankomende tijd    
+## GP   
+Voor gp is het een start maken met het project en de volgenden dingen    
+-Merijn verwelkomen en uitleggen van de opdracht    
+-taken verdelen    
+-Eerste user story verwerken in git    
+-Kijken naar volgende refinement/sprint oplevering afspraak    
+
+## IP   
+Voor ip is het nu vrij simpel.     
+-Maken van een connectie tussen DB - BE     
+-Data vullen in de DB met like 3-5 dummy songs      
+-Functies verder uitwerken in de BE voor ophalen van data     
+-Connectie maken tussen FE en BE      
+-Uitwerken met testen en pushen naar GIT     
