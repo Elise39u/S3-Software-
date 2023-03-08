@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SibRG/XFgeJw7b2RH1geZtKlSnq9EBUXmHs6j6oIRXSQsyOxvmCtfHETS6Glvx7l7KMxVl6b2RkBm39K3px/6Q==",
+  "dgSpecHash": "9CiqO8+BfL2K5uYVZnAtoH0TVr5P5mKOnzrAUiMrybMjlE5080kHG6tj3CSYVgoIF2z/vPA44ugSL/OHBh6oWQ==",
   "success": true,
   "projectFilePath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\SongApiTest\\SongApiTest.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,7 @@
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.codecoverage\\16.11.0\\microsoft.codecoverage.16.11.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.identity.client\\4.35.1\\microsoft.identity.client.4.35.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\2.16.5\\microsoft.identity.client.extensions.msal.2.16.5.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.identity.web\\1.16.0\\microsoft.identity.web.1.16.0.nupkg.sha512",
@@ -29,6 +30,7 @@
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.testplatform.objectmodel\\16.11.0\\microsoft.testplatform.objectmodel.16.11.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.testplatform.testhost\\16.11.0\\microsoft.testplatform.testhost.16.11.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.1\\mysqlconnector.2.3.0-beta.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
