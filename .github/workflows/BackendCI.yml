@@ -31,4 +31,4 @@ jobs:
       working-directory: DotNet BackEnd/Apibackend/SongApiTest
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: Backend/Apibackend/SongDALTest
+      working-directory: DotNet BackEnd/Apibackend/SongDALTest
