@@ -35,8 +35,9 @@ public class SongDALTest
     [Test]
     public void Should_Succeed_FailingGettingSong_ThatDoesntExist()
     {
-        SongModel emptySongModel = new SongModel();
         SongModel song = _songDal.GetSongById(100);
-        Assert.AreEqual(emptySongModel, song, "Song has been found with something inside");
+        Assert.AreEqual(0, song.SongId, "Song id doesnt match 0");
+        Assert.IsNull(song.SongName, "Song name is not empty i found: " + song.SongName);
+        Assert.IsNull(song.SongArtist, "Song Artist is not empty i found: " + song.SongArtist);
     }
 }
