@@ -1,35 +1,38 @@
-﻿using Apibackend.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Logic;
+using Models;
 
 namespace Apibackend.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class SongsController : ControllerBase 
+public class SongsController : ControllerBase
 {
+    private readonly SongLogic _songLogic = new SongLogic();
+    
     [HttpGet("GetAllSongs")]
     public List<SongModel> GetAllSongs()
     {
-        throw new NotImplementedException();
+        return _songLogic.GetAllSongs();
     }
 
-    [HttpGet("{songArtist}")]
-    public List<SongModel> GetSongByArtist()
+    [HttpGet("Artist/{songArtist}")]
+    public List<SongModel> GetSongByArtist(string songArtist)
     {
-        throw new NotImplementedException();
+        return _songLogic.GetSongByArtist(songArtist);
     }
 
-    [HttpGet("{songName}")]
-    public SongModel GetSongByName()
+    [HttpGet("Name/{songName}")]
+    public SongModel GetSongByName(string songName)
     {
-        throw new NotImplementedException();
+        return _songLogic.GetSongByName(songName);
     }
     
     [HttpGet("{songId:int}")]
     public SongModel GetSongById(int songId)
     {
-        throw new NotImplementedException();
+        return _songLogic.GetSongById(songId);
     }
 
     [HttpPost("add/{songName}/{songArtist}/{songGame}/{songImg}/{songAlbumName}/{songDiffculty}")]

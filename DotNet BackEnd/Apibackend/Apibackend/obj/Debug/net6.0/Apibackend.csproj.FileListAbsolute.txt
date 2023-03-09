@@ -43,3 +43,11 @@ D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\refin
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\Apibackend.pdb
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\Apibackend.genruntimeconfig.cache
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\ref\Apibackend.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\MySqlConnector.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\DAL.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Logic.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Models.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Logic.pdb
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Models.pdb
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\DAL.pdb

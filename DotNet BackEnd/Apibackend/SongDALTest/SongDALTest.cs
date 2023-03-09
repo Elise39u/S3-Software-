@@ -40,4 +40,18 @@ public class SongDALTest
         Assert.IsNull(song.SongName, "Song name is not empty i found: " + song.SongName);
         Assert.IsNull(song.SongArtist, "Song Artist is not empty i found: " + song.SongArtist);
     }
+
+    [Test]
+    public void Should_Succeed_GettingSongByArtist()
+    {
+        List<SongModel> songModels = _songDal.GetAllSongsFromAnArtist("Hatsune Miku");
+        Assert.AreEqual(4, songModels.Count, "There are more or less songs than expected found: " + songModels.Count);
+    }
+
+    [Test]
+    public void Should_Succeed_GettingSongByName()
+    {
+        SongModel song = _songDal.GetSongByName("Odds And Ends");
+        Assert.AreEqual("Odds and Ends", song.SongName, "Song names doesnt match expected record odds and ends. Instead got: " + song.SongName);
+    }
 }
