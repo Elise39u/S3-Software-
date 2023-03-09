@@ -1,0 +1,26 @@
+.introText {
+    border-bottom: 5px deepskyblue;
+    border-bottom-style: double;
+
+    margin: 0.5%;
+    padding: 0.5%;
+    color: purple;
+}
+
+.Songview {
+    border: 5px solid black;
+    margin: 0.5%;
+    padding: 0.5%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    border-top:    2px solid  red;
+    border-bottom:    2px solid  yellow;
+    flex: 1;
+
+    padding-top: 0.5%;
+}
