@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongDALTest", "SongDALTest\SongDALTest.csproj", "{2B1800D1-5A5F-4C03-866F-7189B1EC3388}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkDAL", "EntityFrameworkDAL\EntityFrameworkDAL.csproj", "{30D05325-D2A6-4638-901E-0BFE485F37A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{2B1800D1-5A5F-4C03-866F-7189B1EC3388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B1800D1-5A5F-4C03-866F-7189B1EC3388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B1800D1-5A5F-4C03-866F-7189B1EC3388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D05325-D2A6-4638-901E-0BFE485F37A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D05325-D2A6-4638-901E-0BFE485F37A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D05325-D2A6-4638-901E-0BFE485F37A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D05325-D2A6-4638-901E-0BFE485F37A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

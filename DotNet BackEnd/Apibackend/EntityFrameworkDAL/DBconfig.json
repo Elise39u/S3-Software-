@@ -1,0 +1,11 @@
+﻿{
+  "Connectionstring": {
+    "TestDatabase": "server=localhost; database=songlibary; user=root; password="
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  }
+}

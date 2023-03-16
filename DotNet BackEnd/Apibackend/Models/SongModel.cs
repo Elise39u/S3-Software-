@@ -1,5 +1,8 @@
-﻿namespace Models;
+﻿using Microsoft.EntityFrameworkCore;
 
+namespace Models;
+
+[Keyless]
 public class SongModel
 {
     
