@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace Models;
 
-[Keyless]
 public class SongModel
 {
-    
     private readonly int _songId;
     private readonly string _songName;
     private readonly string _songGame;
@@ -49,8 +49,10 @@ public class SongModel
         private init => _songAlbumName = value;
     }
 
+    [NotMapped]
     private List<SongDifficulty> _songDifficulties;
-
+    
+    [NotMapped]
     public List<SongDifficulty> SongDifficulties
     {
         get => _songDifficulties;

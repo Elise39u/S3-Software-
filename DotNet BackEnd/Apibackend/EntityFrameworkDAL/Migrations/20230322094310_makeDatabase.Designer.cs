@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnityFrameworkDAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20230316125619_Song")]
-    partial class Song
+    [Migration("20230322094310_makeDatabase")]
+    partial class makeDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,6 +22,10 @@ namespace EnityFrameworkDAL.Migrations
 
             modelBuilder.Entity("Models.SongModel", b =>
                 {
+                    b.Property<int>("SongId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<string>("SongAlbumImg")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -38,12 +42,11 @@ namespace EnityFrameworkDAL.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("SongId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SongName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.HasKey("SongId");
 
                     b.ToTable("Songs");
                 });
