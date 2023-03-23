@@ -1,25 +1,25 @@
 .songTitle {
-    border-bottom: 5px deepskyblue;
+    border-bottom: 5px #2f2f2f;
     border-bottom-style: double;
 
     margin: 0.5%;
     padding: 0.5%;
-    color: purple;
+    color: #2f2f2f!important;
 }
 
 .ogTitle {
-    border-bottom: 1px deepskyblue;
+    border-bottom: 1px #2f2f2f;
     border-bottom-style: dashed;
 
     margin: 0.5%;
     padding: 0.5%;
-    color: purple;
+    color: #2f2f2f!important;
 }
 
 .videoInfo {
     margin: 0.5%;
     padding: 0.5%;
-    color: purple;
+    color: #2f2f2f!important;
 }
 
 .ytVideo {

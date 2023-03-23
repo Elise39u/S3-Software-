@@ -5,15 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #009b54!important;
+  background-color: #c1ffff!important;
 }
+/*
+#c1ffff
 
+color: purple!important;
+
+color: #9500E5!important;
+ */
 .navbar .navbar-brand {
-  color: purple!important;
 }
 
 .navbarA {
-  color: #9500E5!important;
   font-weight: 500;
   text-decoration: none;
 }
@@ -25,16 +29,15 @@ body {
 }
 
 .navbar-text {
-  color: purple!important;
+  color: #2f2f2f!important;
 }
 
 .nav-link {
-  color: purple!important;
+  color: #2f2f2f!important;
 }
 
 .tell {
-  color: #9500E5!important;
-  font-weight: 1000;
+  font-weight: 750;
 }
 
 code {
