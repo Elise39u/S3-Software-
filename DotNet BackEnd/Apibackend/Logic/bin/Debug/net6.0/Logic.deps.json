@@ -9,6 +9,7 @@
       "Logic/1.0.0": {
         "dependencies": {
           "DAL": "1.0.0",
+          "EntityFrameworkDAL": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "Microsoft.EntityFrameworkCore.Design": "6.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.1",
@@ -230,6 +231,17 @@
           "DAL.dll": {}
         }
       },
+      "EntityFrameworkDAL/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.1",
+          "Models": "1.0.0",
+          "MySqlConnector": "2.3.0-beta.1",
+          "Pomelo.EntityFrameworkCore.MySql": "6.0.1"
+        },
+        "runtime": {
+          "EntityFrameworkDAL.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.1",
@@ -395,6 +407,11 @@
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
     "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EntityFrameworkDAL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

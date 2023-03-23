@@ -472,6 +472,7 @@
       "Logic/1.0.0": {
         "dependencies": {
           "DAL": "1.0.0",
+          "EntityFrameworkDAL": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.1"
         },

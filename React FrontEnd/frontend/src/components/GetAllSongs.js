@@ -12,7 +12,7 @@ class GetAllSongs extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://localhost:7261/Songs/GetAllSongs")
+        fetch("https://localhost:7261/Song")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({

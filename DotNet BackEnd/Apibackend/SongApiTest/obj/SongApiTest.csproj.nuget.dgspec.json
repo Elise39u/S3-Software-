@@ -295,6 +295,9 @@
             "projectReferences": {
               "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\DAL\\DAL.csproj": {
                 "projectPath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\DAL\\DAL.csproj"
+              },
+              "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\EntityFrameworkDAL\\EntityFrameworkDAL.csproj": {
+                "projectPath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\EntityFrameworkDAL\\EntityFrameworkDAL.csproj"
               }
             }
           }

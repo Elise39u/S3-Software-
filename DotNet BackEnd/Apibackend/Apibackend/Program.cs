@@ -1,5 +1,9 @@
 using Apibackend;
+using DAL;
 using EnityFrameworkDAL;
+using EnityFrameworkDAL.Handlers;
+using EnityFrameworkDAL.interfaces;
+using Logic;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +24,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ISongHandler, SongHandler>();
+builder.Services.AddScoped<ISongLogicHandler, SongLogic>();
 
 var app = builder.Build();
 

@@ -1,22 +1,21 @@
-﻿using DAL;
-using EnityFrameworkDAL;
-using EnityFrameworkDAL.interfaces;
+﻿using EnityFrameworkDAL.interfaces;
 using Models;
 
-namespace Logic;
+namespace EnityFrameworkDAL.Handlers;
 
-public class SongLogic : ISongLogicHandler
+public class SongHandler : ISongHandler
 {
-    private ISongHandler _songDalContext;
+    private readonly DatabaseContext _dbContext;
 
-    public SongLogic(ISongHandler songHandler)
+    public SongHandler(DatabaseContext dbContext)
     {
-        _songDalContext = songHandler;
+        _dbContext = dbContext;
     }
 
     public void AddSong(SongModel song)
     {
-        _songDalContext.AddSong(song);
+        _dbContext.Songs.Add(song);
+        _dbContext.SaveChanges();
     }
 
     public void DeleteSong(int songId)
@@ -46,6 +45,6 @@ public class SongLogic : ISongLogicHandler
 
     public List<SongModel> getAllSongs()
     {
-        return _songDalContext.getAllSongs();
+        return _dbContext.Songs.ToList();
     }
 }

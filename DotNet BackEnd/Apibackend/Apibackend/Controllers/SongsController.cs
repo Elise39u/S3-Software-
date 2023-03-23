@@ -6,36 +6,94 @@ using Models;
 namespace Apibackend.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/Song")]
 public class SongsController : ControllerBase
 {
-    private readonly SongLogic _songLogic = new SongLogic();
-    
-    [HttpGet("GetAllSongs")]
-    public List<SongModel> GetAllSongs()
-    {
-        return _songLogic.GetAllSongs();
-    }
+    private readonly ISongLogicHandler _songLogicHandler;
 
-    [HttpGet("Artist/{songArtist}")]
-    public List<SongModel> GetSongByArtist(string songArtist)
+    public SongsController(ISongLogicHandler logicHandler)
     {
-        return _songLogic.GetSongByArtist(songArtist);
-    }
-
-    [HttpGet("Name/{songName}")]
-    public SongModel GetSongByName(string songName)
-    {
-        return _songLogic.GetSongByName(songName);
+        _songLogicHandler = logicHandler;
     }
     
-    [HttpGet("{songId:int}")]
-    public SongModel GetSongById(int songId)
+    [HttpGet]
+    public IEnumerable<SongModel> GetAllSongs()
     {
-        return _songLogic.GetSongById(songId);
+        return _songLogicHandler.getAllSongs();
     }
 
-    [HttpPost("add/{songName}/{songArtist}/{songGame}/{songImg}/{songAlbumName}/{songDiffculty}")]
+    [HttpGet]
+    [Route("{songArtist}")]
+    public IEnumerable<SongModel> GetSongByArtist(string songArtist)
+    {
+        return _songLogicHandler.getSongByArtist(songArtist);
+    }
+
+    [HttpGet]
+    [Route("{songName}")]
+    public IActionResult GetSongByName(string songName)
+    {
+        if (songName == "" || string.IsNullOrEmpty(songName))
+        {
+            return BadRequest();
+        }
+        
+        _songLogicHandler.getSongByName(songName);
+
+        return NoContent();
+    }
+    
+    [HttpGet]
+    [Route("{id}")]
+    public IActionResult GetSongById(int id)
+    {
+        SongModel? result = _songLogicHandler.getSongById(id);
+
+        if (result == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(result);
+    }
+
+    [HttpPost]
+    public IActionResult CreateASong(SongModel song)
+    {
+        if (song == null)
+        {
+            return BadRequest();
+        }
+        
+        _songLogicHandler.AddSong(song);
+
+        return NoContent();
+    }
+    
+    [HttpPut]
+    public IActionResult UpdateASong(SongModel song)
+    {
+        if (song == null)
+        {
+            return BadRequest();
+        }
+        
+        _songLogicHandler.UpdateSong(song);
+
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    public IActionResult DeleteASong(int id)
+    {
+        _songLogicHandler.DeleteSong(id);
+        return NoContent();
+    }
+}
+
+/*
+[HttpPost("add/{songName}/{songArtist}/{songGame}/{songImg}/{songAlbumName}/{songDiffculty}")]
     public string CreateASong()
     {
         throw new NotImplementedException();
@@ -46,10 +104,4 @@ public class SongsController : ControllerBase
     {
         throw new NotImplementedException();
     }
-
-    [HttpDelete("delete/{songId:int}")]
-    public string DeleteASong(int songId)
-    {
-        throw new NotImplementedException();
-    }
-}
+*/
