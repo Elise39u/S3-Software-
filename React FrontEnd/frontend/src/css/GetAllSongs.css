@@ -1,26 +1,136 @@
 .introText {
-    border-bottom: 5px deepskyblue;
+    border-bottom: 5px #2f2f2f;
     border-bottom-style: double;
 
     margin: 0.5%;
     padding: 0.5%;
-    color: purple;
+    color: #2f2f2f!important;
 }
 
 .Songview {
-    border: 5px solid black;
-    margin: 0.5%;
-    padding: 0.5%;
-}
-
-.flex-container {
+    max-width: 75%;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.flex-child {
-    border-top:    2px solid  red;
-    border-bottom:    2px solid  yellow;
-    flex: 1;
+.mainView {
+    margin: 0 10px;
+    min-width: 600px;
+    display: grid!important;
+}
 
-    padding-top: 0.5%;
+.songJacket {
+    grid-row: 1 / 5;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.jacket {
+    position: inherit; /* causes issues with showing on postion absolute */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+img {
+    width: 188px;
+    height: 188px;
+    object-fit: contain;
+}
+
+.diffcultys {
+    display: grid;
+    grid-template-columns: 25px repeat(5, 1fr);
+    grid-template-rows: 100%;
+}
+
+.diffcultys span {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    margin: 0 5px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    overflow: hidden;
+}
+
+
+.easy {
+    background-color: #00d0fc;
+}
+
+.normal {
+    background-color: #43d62f;
+}
+
+.hard {
+    background-color: #fcbe00;
+}
+
+.extreme {
+    background-color: #ff3971;
+}
+
+.extraExtreme {
+    background-color: #b636ec;
+}
+
+.vocals {
+    max-height: 90px;
+    display: grid;
+    grid-template-columns: 25px repeat(3, 1fr);
+    grid-template-rows: 100%;
+}
+
+.vocals .vocalFirst {
+    padding: 5px 20px;
+}
+
+.vocals .vocalSecond {
+    padding: 5px 20px;
+}
+
+.vocals .vocalThird {
+    padding: 5px 20px;
+}
+
+.vocal * {
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vocalFirst {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.vocalSecond {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.vocalThird {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+}
+
+.vocals .vocalFirst img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50px;
+    border: 5px solid #8cc9e5;
 }

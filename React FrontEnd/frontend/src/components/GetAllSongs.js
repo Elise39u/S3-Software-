@@ -37,12 +37,36 @@ class GetAllSongs extends React.Component {
                 <div className="Songview flex-container">
                 {
                     this.state.songs.sort((song) => song.songName).map((song) => {
+                        //Add <a link that adds as get request song for to the div> with help of song.songId
+                        //Add also later vocaloid images instead of their names.
                             return(
-                            <div className="Songview flex-container">
-                                <div className="flex-child">
-                                    <img alt="album logo" src={song.songAlbumImg}/>
-                                    <h2>{song.songName}</h2>
-                                    <p>Artist of the song: {song.songArtist}</p>
+                            <div className="mainView" key={song.songId}>
+                                <div className="songJacket">
+                                    <div className="jacket">
+                                        <img alt="album jacket" src={song.songAlbumImg}/>
+                                    </div>
+                                </div>
+                                <div className="musicName">
+                                    <span><b>Song name: {song.songName}</b></span>
+                                </div>
+                                <div className="musicProducer">
+                                    <span><b>Song producer: Ryo supercell</b></span>
+                                </div>
+                                <div className="diffcultys">
+                                    <span>*</span>
+                                    <span className="easy"></span>
+                                    <span className="normal"></span>
+                                    <span className="hard"></span>
+                                    <span className="extreme"></span>
+                                    <span className="extraExtreme"></span>
+                                </div>
+                                <div className="vocals">
+                                    <span>Vocals:</span>
+                                    <div className="vocalFirst">
+                                        <b>{song.songArtist}</b>
+                                    </div>
+                                    <div className="vocalSecond"></div>
+                                    <div className="vocalThird"></div>
                                 </div>
                             </div>
                             )
