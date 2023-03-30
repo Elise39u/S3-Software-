@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/songOverview.css'
+import '../css/SongOverview.css'
 import Album from '../img/OddsandEndsAlbumCover.png'
 import Miku from '../img/OddsandEndsMiku.png'
 import Logo from '../img/OddsandEndsLogo.png'

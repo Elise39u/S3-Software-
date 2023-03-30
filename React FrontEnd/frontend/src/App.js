@@ -1,7 +1,7 @@
-import Menu from '../src/components/menu'
-import SongInfo from '../src/components/songInfo'
-import SongSummary from '../src/components/songSummary'
-import '../src/css/songOverview.css'
+import Menu from './components/NavMenu'
+import SongInfo from './components/SongInfo'
+import SongSummary from './components/SongSummary'
+import './css/SongOverview.css'
 
 function App() {
   return (

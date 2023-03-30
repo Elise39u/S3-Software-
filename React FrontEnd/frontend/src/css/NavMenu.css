@@ -1,0 +1,37 @@
+/*
+#c1ffff
+
+color: purple!important;
+
+color: #9500E5!important;
+ */
+.navbar .navbar-brand {
+}
+
+.navbarA {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navbarA:hover {
+    color: white!important;
+    font-weight: 1000;
+    text-decoration: underline;
+}
+
+.navbar-text {
+    color: #2f2f2f!important;
+}
+
+.nav-link {
+    color: #2f2f2f!important;
+}
+
+.nav-link:hover {
+    color: #f2f2f2!important;
+    text-decoration: underline;
+}
+
+.tell {
+    font-weight: 750;
+}

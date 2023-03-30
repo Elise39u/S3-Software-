@@ -43,7 +43,7 @@ class GetAllSongs extends React.Component {
                             <div className="mainView" key={song.songId}>
                                 <div className="songJacket">
                                     <div className="jacket">
-                                        <img alt="album jacket" src={song.songAlbumImg}/>
+                                        <img className="jacketImg" alt="album jacket" src={song.songAlbumImg}/>
                                     </div>
                                 </div>
                                 <div className="musicName">
@@ -65,8 +65,6 @@ class GetAllSongs extends React.Component {
                                     <div className="vocalFirst">
                                         <b>{song.songArtist}</b>
                                     </div>
-                                    <div className="vocalSecond"></div>
-                                    <div className="vocalThird"></div>
                                 </div>
                             </div>
                             )
@@ -79,3 +77,7 @@ class GetAllSongs extends React.Component {
 }
 
 export default GetAllSongs;
+/*
+    <div className="vocalSecond"></div>
+    <div className="vocalThird"></div>
+ */

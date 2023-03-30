@@ -17,8 +17,10 @@
 }
 
 .mainView {
+    border-bottom: 2px solid black;
+    padding: 5px;
     margin: 0 10px;
-    min-width: 600px;
+    min-width: 47%;
     display: grid!important;
 }
 
@@ -36,7 +38,7 @@
     right: 0;
 }
 
-img {
+.jacketImg {
     width: 188px;
     height: 188px;
     object-fit: contain;
@@ -88,7 +90,7 @@ img {
 .vocals {
     max-height: 90px;
     display: grid;
-    grid-template-columns: 25px repeat(3, 1fr);
+    grid-template-columns: 50px repeat(2, 1fr);
     grid-template-rows: 100%;
 }
 
@@ -113,10 +115,11 @@ img {
 }
 
 .vocalFirst {
-    grid-column: 3/4;
+    grid-column: 2/8;
     grid-row: 1/2;
 }
 
+/*
 .vocalSecond {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -126,6 +129,7 @@ img {
     grid-column: 4 / 5;
     grid-row: 1 / 2;
 }
+*/
 
 .vocals .vocalFirst img {
     width: 100%;

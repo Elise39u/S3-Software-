@@ -21,27 +21,27 @@ public class SongLogic : ISongLogicHandler
 
     public void DeleteSong(int songId)
     {
-        throw new NotImplementedException();
+        _songDalContext.DeleteSong(songId);
     }
 
     public void UpdateSong(SongModel song)
     {
-        throw new NotImplementedException();
+        _songDalContext.UpdateSong(song);
     }
 
     public SongModel getSongById(int songId)
     {
-        throw new NotImplementedException();
+        return _songDalContext.getSongById(songId);
     }
 
     public SongModel getSongByName(string songName)
     {
-        throw new NotImplementedException();
+        return _songDalContext.getSongByName(songName);
     }
 
     public List<SongModel> getSongByArtist(string songArtist)
     {
-        throw new NotImplementedException();
+        return _songDalContext.getSongByArtist(songArtist);
     }
 
     public List<SongModel> getAllSongs()
