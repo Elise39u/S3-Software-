@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3Se98lV0s2Z4WDZJGpfcyyESgn0aQVHuD6aaFCxPgoH2C/J8NPRLi59InSZg32ViXlBf20zuNGupicZF03I0Xw==",
+  "dgSpecHash": "V6qB15jdQIfi3x3ZNuK1y1XwFx722dilfnjWwIfyM1/nB2pYAxkyNVXKAl6VWzzJ9h35Fwjkl7JnjjhDPE3Z9w==",
   "success": true,
   "projectFilePath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\Logic\\Logic.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\justi\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",
@@ -20,10 +21,12 @@
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\moq\\4.18.4\\moq.4.18.4.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\mysqlconnector\\2.3.0-beta.1\\mysqlconnector.2.3.0-beta.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.1\\pomelo.entityframeworkcore.mysql.6.0.1.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
