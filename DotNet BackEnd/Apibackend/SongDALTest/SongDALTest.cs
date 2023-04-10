@@ -36,13 +36,14 @@ public class SongDALTest
         _mockSet.As<IQueryable<SongModel>>().Setup(m => m.Expression).Returns(_data.Expression);
         _mockSet.As<IQueryable<SongModel>>().Setup(m => m.ElementType).Returns(_data.ElementType);
         _mockSet.As<IQueryable<SongModel>>().Setup(m => m.GetEnumerator()).Returns(_data.GetEnumerator());
-        
+
         _mockContext = new Mock<IDatabaseContext>();
         _mockContext.Setup(db => db.Songs).Returns(_mockSet.Object);
 
         _service = new SongHandler(_mockContext.Object);
     }
 
+    
     [Test]
     public void Should_GetSongs_FromDataBase_Succeed()
     {
@@ -111,5 +112,16 @@ public class SongDALTest
         
         //Assert
         Assert.AreEqual(0, result.Count, "Found Song list is longer than expected. Found entry's: " + result.Count);
+    }
+
+    [Test]
+    public void Should_Succeed_AddingSong()
+    {
+        SongModel song = new SongModel(4, "Mellow yellow", "MM+, FT, Arcade, MM", "MEIKO", null, null);
+        
+        _service.AddSong(song);
+        
+        Assert.AreEqual(4, _data.Count(), "Data song list is not as big as expect number 4: found " + _data.Count());
+        Assert.IsTrue(_data.Contains(song));
     }
 }

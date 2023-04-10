@@ -59,3 +59,5 @@ D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\refin
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\Apibackend.pdb
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\Apibackend.genruntimeconfig.cache
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\obj\Debug\net6.0\ref\Apibackend.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Castle.Core.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\Apibackend\bin\Debug\net6.0\Moq.dll

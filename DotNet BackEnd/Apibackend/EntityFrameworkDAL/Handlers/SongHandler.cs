@@ -21,6 +21,12 @@ public class SongHandler : ISongHandler
     
     public void AddSong(SongModel song)
     {
+        if (_dbContext == null)
+        {
+            _iDbContext.Songs.Add(song);
+            //_iDbContext.SaveChanges();
+        }
+        
         _dbContext.Songs.Add(song);
         _dbContext.SaveChanges();
     }
