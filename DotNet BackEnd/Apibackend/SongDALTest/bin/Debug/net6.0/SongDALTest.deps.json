@@ -10,6 +10,7 @@
         "dependencies": {
           "DAL": "1.0.0",
           "EntityFrameworkDAL": "1.0.0",
+          "Logic": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.1",
           "Microsoft.EntityFrameworkCore.Design": "6.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.1",
@@ -926,6 +927,17 @@
           "EntityFrameworkDAL.dll": {}
         }
       },
+      "Logic/1.0.0": {
+        "dependencies": {
+          "DAL": "1.0.0",
+          "EntityFrameworkDAL": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.1",
+          "Pomelo.EntityFrameworkCore.MySql": "6.0.1"
+        },
+        "runtime": {
+          "Logic.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.1",
@@ -1439,6 +1451,11 @@
       "sha512": ""
     },
     "EntityFrameworkDAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

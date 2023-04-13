@@ -1240,6 +1240,22 @@
           "bin/placeholder/EntityFrameworkDAL.dll": {}
         }
       },
+      "Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAL": "1.0.0",
+          "EntityFrameworkDAL": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.1",
+          "Pomelo.EntityFrameworkCore.MySql": "6.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logic.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4768,6 +4784,11 @@
       "path": "../EntityFrameworkDAL/EntityFrameworkDAL.csproj",
       "msbuildProject": "../EntityFrameworkDAL/EntityFrameworkDAL.csproj"
     },
+    "Logic/1.0.0": {
+      "type": "project",
+      "path": "../Logic/Logic.csproj",
+      "msbuildProject": "../Logic/Logic.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
@@ -4778,6 +4799,7 @@
     "net6.0": [
       "DAL >= 1.0.0",
       "EntityFrameworkDAL >= 1.0.0",
+      "Logic >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.1",
@@ -4820,6 +4842,9 @@
             },
             "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\EntityFrameworkDAL\\EntityFrameworkDAL.csproj": {
               "projectPath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\EntityFrameworkDAL\\EntityFrameworkDAL.csproj"
+            },
+            "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\Logic\\Logic.csproj": {
+              "projectPath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\Logic\\Logic.csproj"
             },
             "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\Models\\Models.csproj": {
               "projectPath": "D:\\school\\S3\\Git Map\\DotNet BackEnd\\Apibackend\\Models\\Models.csproj"

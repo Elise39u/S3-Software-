@@ -125,3 +125,5 @@ D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\Moq.
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\System.Diagnostics.EventLog.dll
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
 D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\Logic.dll
+D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest\bin\Debug\net6.0\Logic.pdb

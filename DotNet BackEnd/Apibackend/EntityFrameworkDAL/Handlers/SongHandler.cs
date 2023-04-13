@@ -6,27 +6,15 @@ namespace EnityFrameworkDAL.Handlers;
 public class SongHandler : ISongHandler
 {
     private readonly DatabaseContext _dbContext;
-    private readonly IDatabaseContext _iDbContext;
 
     public SongHandler(DatabaseContext dbContext)
     {
         _dbContext = dbContext;
     }
 
-    public SongHandler(IDatabaseContext dbContext)
-    {
-        _iDbContext = dbContext;
-    }
 
-    
     public void AddSong(SongModel song)
     {
-        if (_dbContext == null)
-        {
-            _iDbContext.Songs.Add(song);
-            //_iDbContext.SaveChanges();
-        }
-        
         _dbContext.Songs.Add(song);
         _dbContext.SaveChanges();
     }
@@ -56,38 +44,21 @@ public class SongHandler : ISongHandler
 
     public SongModel getSongById(int songId)
     {
-        if (_dbContext == null)
-        {
-            return _iDbContext.Songs.FirstOrDefault(song => song.SongId == songId);
-        }
         return _dbContext.Songs.FirstOrDefault(song => song.SongId == songId);
     }
 
     public SongModel getSongByName(string songName)
     {
-        if (_dbContext == null)
-        {
-            return _iDbContext.Songs.FirstOrDefault(song => song.SongName == songName);
-        }
         return _dbContext.Songs.FirstOrDefault(song => song.SongName == songName);
     }
 
     public List<SongModel> getSongByArtist(string songArtist)
     {
-        if (_dbContext == null)
-        {
-            return _iDbContext.Songs.Where(sa => sa.SongArtist == songArtist).ToList();
-        }
         return _dbContext.Songs.Where(sa => sa.SongArtist == songArtist).ToList();
     }
 
     public List<SongModel> getAllSongs()
     {
-        if (_dbContext == null)
-        {
-            return _iDbContext.Songs.ToList();
-        }
-
         return _dbContext.Songs.ToList();
     }
 }

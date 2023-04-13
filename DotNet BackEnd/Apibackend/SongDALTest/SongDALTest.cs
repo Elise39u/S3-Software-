@@ -4,6 +4,7 @@ using EnityFrameworkDAL;
 using NUnit.Framework;
 using EnityFrameworkDAL.Handlers;
 using EnityFrameworkDAL.interfaces;
+using Logic;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Moq;
@@ -12,116 +13,179 @@ namespace SongDALTest;
 
 public class SongDALTest
 {
-    private IQueryable<SongModel> _data;
-    private Mock<DbSet<SongModel>> _mockSet;
-    private Mock<IDatabaseContext> _mockContext;
-    private SongHandler _service;
-    
-    private static DatabaseContext _dbContext = new(new DbContextOptions<DatabaseContext>());
-    private SongHandler _songDal = new SongHandler(_dbContext);
-    private List<SongModel> _songs = new List<SongModel>();
-
     [SetUp]
     public void Setup()
     {
-        _data = new List<SongModel>
+    }
+
+    
+    [Test]
+    public void Should_GetSongByName_FromDataBase_Succeed()
+    {
+        //with help of https://learn.microsoft.com/en-us/ef/core/testing/testing-without-the-database?source=recommendations and CHATGPT
+        // Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        repositoryMock
+            .Setup(r => r.getSongByName("Odds and Ends"))
+            .Returns(new SongModel
+            {
+                SongName = "Odds and Ends", SongGame = "FT, MM, MM+, Arcade", SongArtist = "Hatsune Miku",
+                SongAlbumImg = "", SongAlbumName = ""
+            });
+        
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        // Act
+        var result = logicSong.getSongByName("Odds and Ends");
+
+        // Assert
+        repositoryMock.Verify(r => r.getSongByName("Odds and Ends"), Times.Once);
+        Assert.AreEqual("Odds and Ends", result.SongName);
+        Assert.AreEqual("Hatsune Miku", result.SongArtist);
+        Assert.AreEqual("FT, MM, MM+, Arcade", result.SongGame);
+    }
+
+    [Test]
+    public void Should_AddSongToRepsoity_Succes()
+    {
+        //Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        var songToAdd = new SongModel
         {
-            new SongModel(1, "Odds and Ends", "MM+, FT, Arcade, MM", "Hatsune Miku", null, null),
-            new SongModel(2, "When First Love Ends", "MM+, FT, Arcade, MM", "Hatsune Miku", null, null),
-            new SongModel(3, "What do you mean", "MM+, FT, Arcade, MM", "Hatsune Miku", null, null)
-        }.AsQueryable();
+            SongName = "Mellow Yellow", SongArtist = "MEIKO", SongGame = "FT, MM, MM+, Arcade",
+            SongAlbumImg = "", SongAlbumName = ""
+        };
         
-        _mockSet = new Mock<DbSet<SongModel>>();
-        _mockSet.As<IQueryable<SongModel>>().Setup(m => m.Provider).Returns(_data.Provider);
-        _mockSet.As<IQueryable<SongModel>>().Setup(m => m.Expression).Returns(_data.Expression);
-        _mockSet.As<IQueryable<SongModel>>().Setup(m => m.ElementType).Returns(_data.ElementType);
-        _mockSet.As<IQueryable<SongModel>>().Setup(m => m.GetEnumerator()).Returns(_data.GetEnumerator());
-
-        _mockContext = new Mock<IDatabaseContext>();
-        _mockContext.Setup(db => db.Songs).Returns(_mockSet.Object);
-
-        _service = new SongHandler(_mockContext.Object);
-    }
-
-    
-    [Test]
-    public void Should_GetSongs_FromDataBase_Succeed()
-    {
         //Act
-        var result = _service.getAllSongs();
+        logicSong.AddSong(songToAdd);
         
-        //Assert
-        Assert.AreEqual(_data.Count(), result.Count, "Found Song list is longer than expected. Found entry's: " + result.Count);
+        //Arrange
+        repositoryMock.Verify(r => r.AddSong(songToAdd), Times.Once);
     }
 
     [Test]
-    public void Should_Succeed_GettingSongById()
+    public void Should_GetAllSongsFromRespoitry_Succes()
     {
-        //Act
-        var result = _service.getSongById(1);
-        
-        //Assert
-        Assert.AreEqual(1, result.SongId, "Found song id doesnt match 1");
-    }
-    
-    [Test]
-    public void Should_Succeed_FailingGettingSong_ThatDoesntExist()
-    {
-        //Act
-        var result = _service.getSongById(10000);
-        
-        //Assert
-        Assert.IsNull(result, "Found result is existing instead of bening null");
-    }
+        //Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        repositoryMock.Setup(r => r.getAllSongs())
+            .Returns(new List<SongModel>
+            {
+                new() {SongName = "Mellow Yellow", SongArtist = "MEIKO", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+                new() {SongName = "Odds and Ends", SongArtist = "Hatsune Miku", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+                new() {SongName = "Roshin Yuukai", SongArtist = "Kegamine Rin", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+                new() {SongName = "Stardust Uptopia", SongArtist = "Megurine Luka", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+                new() {SongName = "Butterfly on your right shoulder", SongArtist = "Kegamine Len", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+                new() {SongName = "Knight of Light", SongArtist = "KAITO, Hatsune Miku", SongGame = "FT, MM, MM+, Arcade", 
+                    SongAlbumImg = "", SongAlbumName = ""},
+            });
+        var logicSong = new SongLogic(repositoryMock.Object);
 
-    [Test]
-    public void Should_Succeed_GettingSongByArtist()
-    {
         //Act
-        var result = _service.getSongByArtist("Hatsune Miku");
+        var getSongs = logicSong.getAllSongs();
         
-        //Assert
-        Assert.AreEqual(3, result.Count, "Found Song list is longer than expected. Found entry's: " + result.Count);
-    }
-
-    [Test]
-    public void Should_Succeed_GettingSongByName()
-    {
-        //Act
-        var result = _service.getSongByName("Odds and Ends");
-        
-        //Assert
-        Assert.AreEqual("Odds and Ends", result.SongName, "Song names doesnt match expected record odds and ends. Instead got: " + result.SongName);
+        //Arrange
+        repositoryMock.Verify(r => r.getAllSongs(), Times.Once);
+        Assert.AreEqual(6, getSongs.Count, "Song list doesnt match count i found: " + getSongs.Count.ToString() + " entrys");
     }
     
     [Test]
-    public void Should_Fail_GettingSongByName()
+    public void Should_GetSongByName_FromDataBase_Fails()
     {
-        //Act
-        var result = _service.getSongByName("Odds and Ends");
+        // Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        repositoryMock
+            .Setup(r => r.getSongByName("Odds and Ends"))
+            .Returns(new SongModel
+            {
+                SongName = "Odds and Ends", SongGame = "FT, MM, MM+, Arcade", SongArtist = "Hatsune Miku",
+                SongAlbumImg = "", SongAlbumName = ""
+            });
         
-        //Assert
-        Assert.AreEqual("Odds and Ends", result.SongName, "Song names doesnt match expected record odds and ends. Instead got: " + result.SongName);
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        // Act
+        var result = logicSong.getSongByName("Mellow Yellow");
+
+        // Assert
+        repositoryMock.Verify(r => r.getSongByName("Mellow Yellow"), Times.Once);
+        Assert.IsNull(result);
     }
     
     [Test]
-    public void Should_Fail_GettingSongsByAristName()
+    public void Should_Success_GetSongByArtist()
     {
-        //Act
-        var result = _service.getSongByArtist("MEIKO");
-        
-        //Assert
-        Assert.AreEqual(0, result.Count, "Found Song list is longer than expected. Found entry's: " + result.Count);
+        // Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        repositoryMock.Setup(r => r.getSongByArtist("Hatsune Miku"))
+            .Returns<string>( artist =>
+            {
+                var songs = new List<SongModel>
+                {
+                    new()
+                    { SongName = "When first Love Ends", SongArtist = "Hatsune Miku", SongGame = "FT, MM, MM+, Arcade",  
+                        SongAlbumImg = "", SongAlbumName = "" },
+                    new() { SongName = "Odds and Ends", SongArtist = "Hatsune Miku", SongGame = "FT, MM, MM+, Arcade",
+                        SongAlbumImg = "", SongAlbumName = "" },
+                    new() { SongName = "Roshin Yuukai", SongArtist = "Kegamine Rin", SongGame = "FT, MM, MM+, Arcade",
+                        SongAlbumImg = "", SongAlbumName = "" },
+                    new() { SongName = "Stardust Uptopia", SongArtist = "Megurine Luka", SongGame = "FT, MM, MM+, Arcade",
+                        SongAlbumImg = "", SongAlbumName = "" }, 
+                    new() { SongName = "Butterfly on your right shoulder", SongArtist = "Kegamine Len", SongGame = "FT, MM, MM+, Arcade",
+                        SongAlbumImg = "", SongAlbumName = "" },
+                    new() { SongName = "Knight of Light", SongArtist = "KAITO, Hatsune Miku", SongGame = "FT, MM, MM+, Arcade",
+                        SongAlbumImg = "", SongAlbumName = "" },
+                };
+                return songs.Where(s => s.SongArtist.Contains(artist)).ToList();
+            });
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        // Act
+        var result = logicSong.getSongByArtist("Hatsune Miku");
+
+        // Assert
+        repositoryMock.Verify(r => r.getSongByArtist("Hatsune Miku"), Times.Once);
+        Assert.AreEqual(3, result.Count, "Expected enty count doesnt match found one. I found: " + result.Count.ToString() + " entys");
     }
 
     [Test]
-    public void Should_Succeed_AddingSong()
+    public void Should_UpdateSongInDatabase_Success()
     {
-        SongModel song = new SongModel(4, "Mellow yellow", "MM+, FT, Arcade, MM", "MEIKO", null, null);
+        //Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        var songToUpdate = new SongModel
+        {
+            SongName = "Mellow Yellow", SongArtist = "MEIKO", SongGame = "FT, MM, MM+, Arcade",
+            SongAlbumImg = "", SongAlbumName = ""
+        };
         
-        _service.AddSong(song);
+        //Act
+        logicSong.UpdateSong(songToUpdate);
         
-        Assert.AreEqual(4, _data.Count(), "Data song list is not as big as expect number 4: found " + _data.Count());
-        Assert.IsTrue(_data.Contains(song));
+        //Assert
+        repositoryMock.Verify(r => r.UpdateSong(songToUpdate));
+    }
+    
+    [Test]
+    public void Should_DeleteInDatabase_Success()
+    {
+        //Arrange
+        var repositoryMock = new Mock<ISongHandler>();
+        var logicSong = new SongLogic(repositoryMock.Object);
+
+        //Act
+        logicSong.DeleteSong(1);
+        
+        //Assert
+        repositoryMock.Verify(r => r.DeleteSong(1));
     }
 }
