@@ -44,24 +44,5 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Elise39u_S3-Software-" /o:"elise39u" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          - name: Build, Test and Analyze
-          runs-on: ubuntu-latest
-          steps:
-            - uses: actions/checkout@v3
-            - name: Setup .NET
-              uses: actions/setup-dotnet@v3
-              with:
-                dotnet-version: 6.0.x
-            - name: Restore dependencies
-              run: dotnet restore
-              working-directory: DotNet BackEnd/Apibackend
-            - name: Build
-              run: dotnet build --no-restore
-              working-directory: DotNet BackEnd/Apibackend
-            - name: Test
-              run: dotnet test --no-build --verbosity normal
-              working-directory: DotNet BackEnd/Apibackend/SongApiTest
-            - name: Test
-              run: dotnet test --no-build --verbosity normal
-              working-directory: DotNet BackEnd/Apibackend/SongDALTest
+            dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
