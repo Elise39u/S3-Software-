@@ -7,7 +7,7 @@ class GetAllSongs extends React.Component {
 
         this.state = {
             LoadingData: false,
-            songs: []
+            songs: [],
         }
     }
 
@@ -15,8 +15,9 @@ class GetAllSongs extends React.Component {
         fetch("https://localhost:7261/Song")
             .then((res) => res.json())
             .then((json) => {
+                const songData = json.sort((song) => song.name)
                 this.setState({
-                    songs: json,
+                    songs: songData,
                     LoadingData: true
                 })
             })
@@ -36,7 +37,7 @@ class GetAllSongs extends React.Component {
                 <h1 className="introText">Found the following songs for you in the libary</h1>
                 <div className="Songview flex-container">
                 {
-                    this.state.songs.sort((song) => song.songName).map((song) => {
+                    this.map((song) => {
                         //Add <a link that adds as get request song for to the div> with help of song.songId
                         //Add also later vocaloid images instead of their names.
                             return(

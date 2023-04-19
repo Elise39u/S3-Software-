@@ -1,8 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1c96db4f_002Dbf7d_002D407d_002D8338_002Dde0428169cb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Should_Get5Songs_FromDataBase_Succeed #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1c96db4f_002Dbf7d_002D407d_002D8338_002Dde0428169cb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Should_Get5Songs_FromDataBase_Succeed #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\school\S3\Git Map\DotNet BackEnd\Apibackend\SongDALTest" Presentation="&amp;lt;SongDALTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99783a7b_002D4508_002D4c18_002Db66b_002Da306dee694c3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Should_Get5Songs_FromDataBase_Succeed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=99783a7b_002D4508_002D4c18_002Db66b_002Da306dee694c3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Should_Get5Songs_FromDataBase_Succeed" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;ProjectFile&gt;2B1800D1-5A5F-4C03-866F-7189B1EC3388/f:SongDALTest.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9f82e442_002D9b18_002D41e2_002D97ac_002Db3346b3a0b29/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Should_Succeed_CreateSong" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

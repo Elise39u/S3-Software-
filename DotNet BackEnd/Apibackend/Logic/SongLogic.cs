@@ -7,7 +7,7 @@ namespace Logic;
 
 public class SongLogic : ISongLogicHandler
 {
-    private ISongHandler _songDalContext;
+    private readonly ISongHandler _songDalContext;
 
     public SongLogic(ISongHandler songHandler)
     {

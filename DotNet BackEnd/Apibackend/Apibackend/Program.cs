@@ -33,7 +33,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    //Todo: add logging
+    
 }
 
 app.UseCors(origins => origins

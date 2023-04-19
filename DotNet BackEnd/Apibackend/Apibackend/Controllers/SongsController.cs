@@ -91,17 +91,3 @@ public class SongsController : ControllerBase
         return NoContent();
     }
 }
-
-/*
-[HttpPost("add/{songName}/{songArtist}/{songGame}/{songImg}/{songAlbumName}/{songDiffculty}")]
-    public string CreateASong()
-    {
-        throw new NotImplementedException();
-    }
-    
-    [HttpPut("update/{songId:int}/{songName}/{songArtist}/{songGame}/{songImg}/{songAlbumName}")]
-    public string UpdateASong()
-    {
-        throw new NotImplementedException();
-    }
-*/

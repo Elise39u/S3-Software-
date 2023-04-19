@@ -4,10 +4,10 @@ using MySqlConnector;
 
 namespace DAL;
 
-public class SongDAL
+public class SongDal
 {
-    private DBConnection _dbConnection = new DBConnection();
-    private List<SongModel> _songModels = new List<SongModel>();
+    private readonly DBConnection _dbConnection = new DBConnection();
+    private readonly List<SongModel> _songModels = new List<SongModel>();
 
     public List<SongModel> GetAllSongs()
     {
