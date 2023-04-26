@@ -37,7 +37,7 @@ class GetAllSongs extends React.Component {
                 <h1 className="introText">Found the following songs for you in the libary</h1>
                 <div className="Songview flex-container">
                 {
-                    this.map((song) => {
+                    this.state.songs.map((song) => {
                         //Add <a link that adds as get request song for to the div> with help of song.songId
                         //Add also later vocaloid images instead of their names.
                             return(
@@ -51,7 +51,7 @@ class GetAllSongs extends React.Component {
                                     <span><b>Song name: {song.songName}</b></span>
                                 </div>
                                 <div className="musicProducer">
-                                    <span><b>Song producer: Ryo supercell</b></span>
+                                    <span><b>Song producer: Unknown</b></span>
                                 </div>
                                 <div className="diffcultys">
                                     <span>*</span>

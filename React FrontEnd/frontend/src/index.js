@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SongOverview from './pages/SongOverview'
+import SongUploadForm from "./pages/AddSong";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,8 +19,9 @@ root.render(
         />
         <BrowserRouter>
             <Routes>
-                <Route index element={<App />} />
-                <Route path="/Overview" element={<SongOverview />} />
+                <Route index element={<SongOverview />} />
+                <Route path="/Schets" element={<App />} />
+                <Route path="/AddSong" element={<SongUploadForm />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

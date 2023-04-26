@@ -18,8 +18,8 @@ function NavMenu() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav className="me-auto">
-                        <Nav.Link href="#">Home</Nav.Link>
-                        <Nav.Link href="/Overview">Song List Overview</Nav.Link>
+                        <Nav.Link href="/">Song List Overview</Nav.Link>
+                        <Nav.Link href="/AddSong">Add a song</Nav.Link>
                         <Nav.Link href="#">Personal tracker</Nav.Link>
                     </Nav>
                     <Navbar.Text>
