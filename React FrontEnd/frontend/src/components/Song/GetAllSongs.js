@@ -1,5 +1,9 @@
 import React from "react"
-import "../css/GetAllSongs.css"
+import "../../css/GetAllSongs.css"
+import Pencil from "../../img/svgIcons/pencil-svgrepo-com.svg"
+import TrashCan from "../../img/svgIcons/gui-trash-svgrepo-com.svg"
+import EditSongModal from "./EditSongModal";
+import Info from "../../img/svgIcons/information-circle-svgrepo-com.svg"
 
 class GetAllSongs extends React.Component {
     constructor(props) {
@@ -8,7 +12,16 @@ class GetAllSongs extends React.Component {
         this.state = {
             LoadingData: false,
             songs: [],
+            showEditModal: false
         }
+    }
+
+    handleEditModalClose = () => {
+        this.setState({showEditModal: false})
+    }
+
+    handleEditModalOpen = () => {
+        this.setState({showEditModal: true})
     }
 
     componentDidMount() {
@@ -45,6 +58,9 @@ class GetAllSongs extends React.Component {
                                 <div className="songJacket">
                                     <div className="jacket">
                                         <img className="jacketImg" alt="album jacket" src={song.songAlbumImg}/>
+                                        <img className={"svgImages pencil"} src={Pencil}  alt={"edit the song"} onClick={this.handleEditModalOpen}/>
+                                        <img className={"svgImages trashcan"} src={TrashCan}  alt={"delete the song"}/>
+                                        <img className={"svgImages info"} src={Info}  alt={"info about the song"}/>
                                     </div>
                                 </div>
                                 <div className="musicName">
@@ -67,6 +83,10 @@ class GetAllSongs extends React.Component {
                                         <b>{song.songArtist}</b>
                                     </div>
                                 </div>
+
+                                <EditSongModal showModal={this.state.showEditModal} handleEditClose={this.handleEditModalClose}
+                                               songId={song.songId} songName={song.songName} songGame={song.songGame} songArtist={song.songArtist}
+                                               songAlbumImg={song.songAlbumImg} songAlbumName={song.songAlbumName}></EditSongModal>
                             </div>
                             )
                         }
