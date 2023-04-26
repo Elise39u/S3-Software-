@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavMenu from "../components/NavMenu";
-import  "../css/AddSong.css"
+import  "../css/Song/AddSong.css"
 import AlertMessage from "../components/AlertMessage";
 
 function SongUploadForm() {
@@ -70,7 +70,7 @@ function SongUploadForm() {
                 }
             })
             .then((data) => {
-                console.log("Test " + data)
+
                 setModal("Song is successfully added with name: " + songName + " and artist: " + songArtist, "success",
                     "Successful upload", "I detected a successful upload")
             })

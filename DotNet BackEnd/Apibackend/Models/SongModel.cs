@@ -8,7 +8,7 @@ public class SongModel
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int SongId { get; }
+    public int SongId { get; set; }
     public string SongName { get; set; }
     public string SongGame { get; set; }
     public string SongArtist { get; set; }

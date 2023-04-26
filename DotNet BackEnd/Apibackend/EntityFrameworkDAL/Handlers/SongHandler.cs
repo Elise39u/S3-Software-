@@ -39,6 +39,7 @@ public class SongHandler : ISongHandler
             updateSong.SongGame = song.SongGame;
             updateSong.SongAlbumImg = song.SongAlbumImg;
             updateSong.SongAlbumName = song.SongAlbumName;
+            _dbContext.SaveChanges();
         }
     }
 

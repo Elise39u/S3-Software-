@@ -1,6 +1,6 @@
 import React from "react";
-import '../css/SongSummary.css'
-import '../css/SongOverview.css'
+import '../css/Song/SongSummary.css'
+import '../css/Song/SongOverview.css'
 import {Button, Table} from "react-bootstrap";
 
 class SongSummary extends React.Component {

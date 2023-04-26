@@ -1,0 +1,13 @@
+.modal-footer {
+    background-color: #00ffb2 !important;
+}
+
+.modal-header {
+    background-color: #00ffb2 !important;
+}
+
+.previewImg {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}

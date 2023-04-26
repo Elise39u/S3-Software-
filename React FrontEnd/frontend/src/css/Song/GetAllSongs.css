@@ -146,13 +146,13 @@
 }
 
 .pencil:hover {
-    filter: invert(10%) sepia(51%) saturate(6962%) hue-rotate(356deg) brightness(85%) contrast(111%);
+    filter: invert(8%) sepia(89%) saturate(7399%) hue-rotate(243deg) brightness(59%) contrast(129%);
 }
 
 .trashcan:hover {
-    filter: invert(10%) sepia(51%) saturate(6962%) hue-rotate(356deg) brightness(85%) contrast(111%);
+    filter: invert(8%) sepia(89%) saturate(7399%) hue-rotate(243deg) brightness(59%) contrast(129%);
 }
 
 .info:hover {
-    filter: invert(10%) sepia(51%) saturate(6962%) hue-rotate(356deg) brightness(85%) contrast(111%);
+    filter: invert(8%) sepia(89%) saturate(7399%) hue-rotate(243deg) brightness(59%) contrast(129%);
 }
