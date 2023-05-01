@@ -80,7 +80,7 @@ public class SongsController : ControllerBase
         
         _songLogicHandler.UpdateSong(song);
 
-        return NoContent();
+        return Ok(_songLogicHandler.getAllSongs());
     }
 
     [HttpDelete]
@@ -88,6 +88,6 @@ public class SongsController : ControllerBase
     public IActionResult DeleteASong(int id)
     {
         _songLogicHandler.DeleteSong(id);
-        return NoContent();
+        return Ok(_songLogicHandler.getAllSongs());
     }
 }

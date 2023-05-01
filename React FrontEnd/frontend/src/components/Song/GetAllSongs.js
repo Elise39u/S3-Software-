@@ -3,6 +3,7 @@ import "../../css/Song/GetAllSongs.css"
 import Pencil from "../../img/svgIcons/pencil-svgrepo-com.svg"
 import TrashCan from "../../img/svgIcons/gui-trash-svgrepo-com.svg"
 import EditSongModal from "./EditSongModal"
+import DeleteSong from "./DeleteSong";
 import Info from "../../img/svgIcons/information-circle-svgrepo-com.svg"
 
 class GetAllSongs extends React.Component {
@@ -13,9 +14,14 @@ class GetAllSongs extends React.Component {
             LoadingData: false,
             songs: [],
             showEditModal: false,
+            showDeleteModal: false,
             selectedSong: 0
         };
-        //this.handleEditModalOpen = this.handleEditModalOpen.bind(this);
+        this.updateSongList = this.updateSongList.bind(this);
+    }
+
+    updateSongList(newSongList) {
+        this.setState({ songs: newSongList });
     }
 
     handleEditModalClose = () => {
@@ -28,7 +34,21 @@ class GetAllSongs extends React.Component {
         this.setState({selectedSong: songId})
     }
 
+    handleDeleteModalClose = () => {
+        this.setState({showDeleteModal: false})
+        this.setState({selectedSong: 0})
+    }
+
+    handleDeleteModalOpen(songId) {
+        this.setState({showDeleteModal: true})
+        this.setState({selectedSong: songId})
+    }
+
     componentDidMount() {
+        this.GetSongData();
+    }
+
+    GetSongData() {
         fetch("https://localhost:7261/Song")
             .then((res) => res.json())
             .then((json) => {
@@ -63,7 +83,7 @@ class GetAllSongs extends React.Component {
                                     <div className="jacket">
                                         <img className="jacketImg" alt="album jacket" src={song.songAlbumImg}/>
                                         <img className={"svgImages pencil"} src={Pencil}  alt={"edit the song"} onClick={this.handleEditModalOpen.bind(this, song.songId)}/>
-                                        <img className={"svgImages trashcan"} src={TrashCan}  alt={"delete the song"}/>
+                                        <img className={"svgImages trashcan"} src={TrashCan}  alt={"delete the song"} onClick={this.handleDeleteModalOpen.bind(this, song.songId)}/>
                                         <img className={"svgImages info"} src={Info}  alt={"info about the song"}/>
                                     </div>
                                 </div>
@@ -98,6 +118,16 @@ class GetAllSongs extends React.Component {
                                         songArtist={song.songArtist}
                                         songAlbumImg={song.songAlbumImg}
                                         songAlbumName={song.songAlbumName}
+                                        updateSongList={this.updateSongList}
+                                    />
+                                )}
+                                {this.state.showDeleteModal && this.state.selectedSong === song.songId && (
+                                    <DeleteSong
+                                        showModal={this.state.showDeleteModal}
+                                        handleDeleteClose={this.handleDeleteModalClose}
+                                        songId={song.songId}
+                                        songName={song.songName}
+                                        updateSongList={this.updateSongList}
                                     />
                                 )}
                             </div>

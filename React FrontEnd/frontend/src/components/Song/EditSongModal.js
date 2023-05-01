@@ -4,7 +4,7 @@ import '../../css/Song/EditSong.css'
 import AlertMessage from "../AlertMessage";
 
 function EditSongModal (props){
-
+    //Song prop states
     const[showModal, setShowModal] = useState(props.showModal);
     const[songId, setSongId] = useState(props.songId);
     const[songName, setSongName] = useState(props.songName);
@@ -29,10 +29,6 @@ function EditSongModal (props){
                 setSongAlbumImg(reader.result);
             };
         }
-    }
-
-    const handleCancelClick = () => {
-        setShowModal(false);
     }
 
     function setModal(modalMessage, modalVariant, modalHeader, modalText) {
@@ -72,10 +68,10 @@ function EditSongModal (props){
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-            })
-            .then((data) => {
-                setModal("Song is successfully updated", "success",
+                response.json().then(r => {
+                    setModal("Song is successfully updated", "success",
                     "Successful upload", "I detected a successful upload")
+                    props.updateSongList(r);})
             })
             .catch((error) => {
                 setModal("An error occured while updating your song? Try again later","danger",
@@ -88,7 +84,7 @@ function EditSongModal (props){
     }
 
         return (
-        <Modal show={showModal} onHide={handleCancelClick}>
+        <Modal show={showModal} onClose={props.handleEditClose} onHide={props.handleEditClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Edit {songName}</Modal.Title>
             </Modal.Header>
