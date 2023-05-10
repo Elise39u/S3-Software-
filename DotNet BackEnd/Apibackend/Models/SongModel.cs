@@ -15,6 +15,7 @@ public class SongModel
     public string SongAlbumImg { get; set; }
     public string SongAlbumName { get; set; }
     public string SongProducer { get; set; }
+    public List<SongDifficultyModals> SongDifficulties { get; set; }
     
     public SongModel()
     {

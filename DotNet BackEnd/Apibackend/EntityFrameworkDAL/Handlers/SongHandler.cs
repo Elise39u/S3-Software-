@@ -1,4 +1,5 @@
 ﻿using EnityFrameworkDAL.interfaces;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 namespace EnityFrameworkDAL.Handlers;
@@ -61,6 +62,6 @@ public class SongHandler : ISongHandler
 
     public List<SongModel> getAllSongs()
     {
-        return _dbContext.Songs.ToList();
+        return _dbContext.Songs.Include(s => s.SongDifficulties).ToList();
     }
 }

@@ -2,6 +2,7 @@
 using EnityFrameworkDAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnityFrameworkDAL.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230510085821_SeedDiffcultysData")]
+    partial class SeedDiffcultysData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,6 +33,33 @@ namespace EnityFrameworkDAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Diffcultys");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Easy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Normal"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Hard"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Extreme"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Extra Extreme"
+                        });
                 });
 
             modelBuilder.Entity("Models.SongModel", b =>

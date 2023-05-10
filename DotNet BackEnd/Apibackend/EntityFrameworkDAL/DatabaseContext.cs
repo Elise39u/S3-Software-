@@ -14,6 +14,8 @@ namespace EnityFrameworkDAL;
 public class DatabaseContext : DbContext
 {
     public DbSet<SongModel> Songs { get; set; }
+    public DbSet<DifficultyModel> Diffcultys { get; set; }
+    public DbSet<SongDifficultyModals> SongDifficultys { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -34,8 +36,23 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<SongModel>()
-            .HasKey(c => new { c.SongId });
+        modelBuilder.Entity<SongModel>().HasKey(c => new { c.SongId });
+        modelBuilder.Entity<DifficultyModel>().HasKey(d => new {d.Id});
+        
+        modelBuilder.Entity<SongDifficultyModals>()
+            .HasKey(sd => new { sd.SongId, sd.DifficultyId });
+
+        /*
+        modelBuilder.Entity<SongDifficultyModals>()
+            .HasOne(sd => sd.SongModal)
+            .WithMany(s => s.SongDifficulties)
+            .HasForeignKey(sd => sd.SongId);
+
+        modelBuilder.Entity<SongDifficultyModals>()
+            .HasOne(sd => sd.Difficulty)
+            .WithMany()
+            .HasForeignKey(sd => sd.DifficultyId);
+            */
     }
 
 }

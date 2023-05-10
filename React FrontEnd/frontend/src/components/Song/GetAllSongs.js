@@ -95,11 +95,34 @@ class GetAllSongs extends React.Component {
                                 </div>
                                 <div className="diffcultys">
                                     <span>*</span>
-                                    <span className="easy"></span>
-                                    <span className="normal"></span>
-                                    <span className="hard"></span>
-                                    <span className="extreme"></span>
-                                    <span className="extraExtreme"></span>
+                                    {song.songDifficulties.length !== 0 ? song.songDifficulties.map((difficulty, index) => (
+                                            <span
+                                                key={index}
+                                                className={`${
+                                                    difficulty.difficultyId === 1
+                                                        ? "easy"
+                                                        : difficulty.difficultyId === 2
+                                                            ? "normal"
+                                                            : difficulty.difficultyId === 3
+                                                                ? "hard"
+                                                                : difficulty.difficultyId === 4
+                                                                    ? "extreme"
+                                                                    : difficulty.difficultyId === 5
+                                                                        ? "extraExtreme"
+                                                                        : ""
+                                                }`}
+                                                >{difficulty.difficultyRating === 0 ? "-" : difficulty.difficultyRating} </span>
+                                        )) : (
+                                        <>
+                                            <span className="easy">-</span>
+                                            <span className="normal">-</span>
+                                            <span className="hard">-</span>
+                                            <span className="extreme">-</span>
+                                            <span className="extraExtreme">-</span>
+                                        </>
+                                    )}
+
+
                                 </div>
                                 <div className="vocals">
                                     <span>Vocals:</span>
