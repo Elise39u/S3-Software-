@@ -14,7 +14,8 @@ public class SongModel
     public string SongArtist { get; set; }
     public string SongAlbumImg { get; set; }
     public string SongAlbumName { get; set; }
-
+    public string SongProducer { get; set; }
+    
     public SongModel()
     {
         
@@ -29,6 +30,18 @@ public class SongModel
         SongArtist = songArtist;
         SongAlbumImg = songAlbumImg;
         SongAlbumName = songAlbumName;
+    }
+
+    public SongModel(int songId, string songName, string songGame,
+        string songArtist, string songAlbumImg, string songAlbumName, string songProducer)
+    { 
+        SongId = songId;
+        SongName = songName;
+        SongGame = songGame;
+        SongArtist = songArtist;
+        SongAlbumImg = songAlbumImg;
+        SongAlbumName = songAlbumName;
+        SongProducer = songProducer;
     }
 }
 

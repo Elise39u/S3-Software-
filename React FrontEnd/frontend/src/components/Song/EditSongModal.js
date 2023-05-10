@@ -5,13 +5,14 @@ import AlertMessage from "../AlertMessage";
 
 function EditSongModal (props){
     //Song prop states
-    const[showModal, setShowModal] = useState(props.showModal);
-    const[songId, setSongId] = useState(props.songId);
+    const[showModal] = useState(props.showModal);
+    const[songId] = useState(props.songId);
     const[songName, setSongName] = useState(props.songName);
     const[songGame, setSongGame] = useState(props.songGame);
     const[songArtist, setSongArtist] = useState(props.songArtist);
     const[songAlbumImg, setSongAlbumImg] = useState(props.songAlbumImg);
     const[songAlbumName, setSongAlbumName] = useState(props.songAlbumName);
+    const[songProducer, setSongProducer] = useState(props.songProducer);
 
     //Modal States
     const [showAlert, setAlertShow] = useState(false);
@@ -20,13 +21,24 @@ function EditSongModal (props){
     const [alertHeader, setAlertHeader] = useState("")
     const [alertText, setAlertText] = useState("")
 
-    const handleSongImgChange = (e) => {
+    const handleSongAlbumImgChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = () => {
                 setSongAlbumImg(reader.result);
+            };
+        }
+    }
+
+    const handleSongNameChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                setSongAlbumName(reader.result);
             };
         }
     }
@@ -49,6 +61,7 @@ function EditSongModal (props){
         formData.append("songArtist", songArtist);
         formData.append("songAlbumImg", songAlbumImg);
         formData.append("songAlbumName", songAlbumName);
+        formData.append("songProducer", songProducer)
 
         fetch("https://localhost:7261/Song", {
             method: "PUT",
@@ -61,7 +74,8 @@ function EditSongModal (props){
                 songGame,
                 songArtist,
                 songAlbumImg,
-                songAlbumName
+                songAlbumName,
+                songProducer
             })
         })
             .then((response) => {
@@ -85,7 +99,7 @@ function EditSongModal (props){
 
         return (
         <Modal show={showModal} onClose={props.handleEditClose} onHide={props.handleEditClose}>
-            <Modal.Header closeButton>
+            <Modal.Header className={"modal-header editModal"} closeButton>
                 <Modal.Title>Edit {songName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -112,17 +126,23 @@ function EditSongModal (props){
                     </Form.Group>
                     <Form.Group controlId="song album-img">
                         <Form.Label>Album Name</Form.Label>
-                        <Form.Control type="file" placeholder="Upload  the album image here" onChange={handleSongImgChange} />
+                        <Form.Control type="file" placeholder="Upload  the album image here" onChange={handleSongAlbumImgChange} />
                         <i> Current image preview </i> <br />
                         <img className={"previewImg"} src={songAlbumImg} alt={"albumImg"}/>
                     </Form.Group>
                     <Form.Group controlId="song album-name">
                         <Form.Label>Album Name</Form.Label>
-                        <Form.Control type="text" placeholder="enter the songs album" value={songAlbumName} onChange={(e) => setSongAlbumName(e.target.value)}/>
+                        <Form.Control type="file" placeholder="Upload  the album logo  here" value={typeof songAlbumName !== 'string' ? songAlbumName : ""} onChange={handleSongNameChange}/>
+                        <i> Current image preview </i> <br />
+                        <img className={"previewImg"} src={songAlbumName} alt={"albumImg"}/>
                     </Form.Group>
+                <Form.Group controlId="song producer">
+                    <Form.Label>Song Producer</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the songs producer" value={songProducer} onChange={(e) => setSongProducer(e.target.value)}/>
+                </Form.Group>
                 </Form>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className={"modal-footer editModal"}>
                 <Button variant="dark" onClick={props.handleEditClose}>Cancel</Button>
                 <Button variant="primary" onClick={handleSubmit}>Save Changes</Button>
             </Modal.Footer>

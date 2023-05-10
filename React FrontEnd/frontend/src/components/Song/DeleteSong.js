@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import AlertMessage from "../AlertMessage";
-import {Button, Form, Modal} from "react-bootstrap";
+import {Button, Modal} from "react-bootstrap";
 import '../../css/Song/DeleteSong.css'
 
 function DeleteSong(props) {
     //Song properties
-    const[showModal, setShowModal] = useState(props.showModal);
-    const[songId, setSongId] = useState(props.songId);
-    const[songName, setSongName] = useState(props.songName);
+    const[showModal] = useState(props.showModal);
+    const[songId] = useState(props.songId);
+    const[songName] = useState(props.songName);
 
     //AlertModal props states
     const [showAlert, setAlertShow] = useState(false);
@@ -50,7 +50,7 @@ function DeleteSong(props) {
 
     return (
         <Modal show={showModal} onClose={props.handleDeleteClose} onHide={props.handleDeleteClose}>
-            <Modal.Header closeButton>
+            <Modal.Header className={"modal-header deleteModal"} closeButton>
                 <Modal.Title>Do you want to delete {songName}?</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -61,7 +61,7 @@ function DeleteSong(props) {
             <p> Be warned deleting <b> {songName} </b> is irreversible. <br />
                 Are you sure you want to delete <b> {songName} </b>!</p>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className={"modal-footer deleteModal"}>
                 <Button variant="dark" onClick={props.handleDeleteClose}>Cancel Deletion</Button>
                 <Button variant="primary" onClick={handleSubmit}>Delete {songName}</Button>
             </Modal.Footer>

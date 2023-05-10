@@ -91,7 +91,7 @@ class GetAllSongs extends React.Component {
                                     <span><b>Song name: {song.songName}</b></span>
                                 </div>
                                 <div className="musicProducer">
-                                    <span><b>Song producer: Unknown</b></span>
+                                    <span><b>Song producer: {song.songProducer === "" ? "No producer found" : song.songProducer}</b></span>
                                 </div>
                                 <div className="diffcultys">
                                     <span>*</span>
@@ -118,6 +118,7 @@ class GetAllSongs extends React.Component {
                                         songArtist={song.songArtist}
                                         songAlbumImg={song.songAlbumImg}
                                         songAlbumName={song.songAlbumName}
+                                        songProducer={song.songProducer}
                                         updateSongList={this.updateSongList}
                                     />
                                 )}

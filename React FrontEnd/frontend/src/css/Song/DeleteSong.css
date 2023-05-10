@@ -1,8 +1,4 @@
-.modal-footer {
-    background-color: #a40000 !important;
-}
-
-.modal-header {
+.deleteModal {
     background-color: #a40000 !important;
     color: white;
 }
