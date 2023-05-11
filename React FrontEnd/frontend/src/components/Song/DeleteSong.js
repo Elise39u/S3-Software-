@@ -32,7 +32,7 @@ function DeleteSong(props) {
         event.preventDefault()
 
         try {
-            await fetch("https://localhost:7261/Song/" + songId, {
+            const response = await fetch("https://localhost:7261/Song/" + songId, {
                 method: "DELETE"
             })
             if (!response.ok) {
