@@ -35,16 +35,14 @@ function DeleteSong(props) {
             await fetch("https://localhost:7261/Song/" + songId, {
                 method: "DELETE"
             })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not ok");
-                    }
-                    response.json().then(r => {
-                        setModal("Song is successfully deleted", "success",
-                            "Successful deletion", "I detected a successful deletion")
-                        props.updateSongList(r);
-                    })
-                })
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const r = await response.json();
+
+            setModal("Song is successfully deleted", "success", "Successful deletion", "I detected a successful deletion");
+            props.updateSongList(r);
         } catch(error) {
                 setModal("An error occured while deleting your song? Try again later","danger",
                     "Something went wrong >:( ", "I got an error back from the mikudayos")
