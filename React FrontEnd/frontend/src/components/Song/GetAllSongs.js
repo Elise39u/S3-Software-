@@ -142,6 +142,7 @@ class GetAllSongs extends React.Component {
                                         songAlbumImg={song.songAlbumImg}
                                         songAlbumName={song.songAlbumName}
                                         songProducer={song.songProducer}
+                                        songDifficulties={song.songDifficulties}
                                         updateSongList={this.updateSongList}
                                     />
                                 )}

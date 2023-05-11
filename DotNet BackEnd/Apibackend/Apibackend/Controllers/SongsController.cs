@@ -23,14 +23,14 @@ public class SongsController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{songArtist}")]
+    [Route("Artist/{songArtist}")]
     public IEnumerable<SongModel> GetSongByArtist(string songArtist)
     {
         return _songLogicHandler.getSongByArtist(songArtist);
     }
 
     [HttpGet]
-    [Route("{songName}")]
+    [Route("Name/{songName}")]
     public IActionResult GetSongByName(string songName)
     {
         if (songName == "" || string.IsNullOrEmpty(songName))

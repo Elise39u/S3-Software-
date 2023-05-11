@@ -41,6 +41,7 @@ public class SongHandler : ISongHandler
             updateSong.SongAlbumImg = song.SongAlbumImg;
             updateSong.SongAlbumName = song.SongAlbumName;
             updateSong.SongProducer = song.SongProducer;
+            updateSong.SongDifficulties = song.SongDifficulties;
             _dbContext.SaveChanges();
         }
     }

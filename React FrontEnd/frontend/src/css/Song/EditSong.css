@@ -7,3 +7,39 @@
     height: 75%;
     object-fit: contain;
 }
+
+.difficulties span {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+    margin: 0 5px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    overflow: hidden;
+}
+
+.easy {
+    background-color: #00d0fc;
+}
+
+.normal {
+    background-color: #43d62f;
+}
+
+.hard {
+    background-color: #fcbe00;
+}
+
+.extreme {
+    background-color: #ff3971;
+}
+
+.extraExtreme {
+    background-color: #b636ec;
+}
