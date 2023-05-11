@@ -45,7 +45,7 @@ class GetAllSongs extends React.Component {
     }
 
     componentDidMount() {
-        this.GetSongData().then();
+        this.GetSongData().catch((r) => console.log(r));
     }
 
     async GetSongData() {
