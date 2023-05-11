@@ -28,24 +28,27 @@ function DeleteSong(props) {
         setAlertShow(false)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        fetch("https://localhost:7261/Song/" + songId, {
-            method: "DELETE"
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                response.json().then(r => {
-                    setModal("Song is successfully deleted", "success",
-                        "Successful deletion", "I detected a successful deletion")
-                    props.updateSongList(r);})
+
+        try {
+            fetch("https://localhost:7261/Song/" + songId, {
+                method: "DELETE"
             })
-            .catch((error) => {
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    response.json().then(r => {
+                        setModal("Song is successfully deleted", "success",
+                            "Successful deletion", "I detected a successful deletion")
+                        props.updateSongList(r);
+                    })
+                })
+        } catch(error) {
                 setModal("An error occured while deleting your song? Try again later","danger",
                     "Something went wrong >:( ", "I got an error back from the mikudayos")
-            });
+            }
     }
 
     return (
