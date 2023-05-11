@@ -45,11 +45,11 @@ class GetAllSongs extends React.Component {
     }
 
     componentDidMount() {
-        this.GetSongData();
+        this.GetSongData().then();
     }
 
-    GetSongData() {
-        fetch("https://localhost:7261/Song")
+    async GetSongData() {
+        await fetch("https://localhost:7261/Song")
             .then((res) => res.json())
             .then((json) => {
                 const songData = json.sort((song) => song.name)

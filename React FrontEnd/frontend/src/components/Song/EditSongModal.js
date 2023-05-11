@@ -139,14 +139,15 @@ function EditSongModal (props){
                 songDifficulties
             })
         })
-            .then((response) => {
+            .then(async (response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-                response.json().then(r => {
+                await response.json().then(r => {
                     setModal("Song is successfully updated", "success",
-                    "Successful upload", "I detected a successful upload")
-                    props.updateSongList(r);})
+                        "Successful upload", "I detected a successful upload")
+                    props.updateSongList(r);
+                })
             })
             .catch((error) => {
                 setModal("An error occured while updating your song? Try again later","danger",
