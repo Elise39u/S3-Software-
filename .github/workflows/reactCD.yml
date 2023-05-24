@@ -28,7 +28,7 @@ jobs:
 
     - name: Deploy to GitHub Pages
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.NEW_KEY }}
+        SSH_PRIVATE_KEY: ${{ secrets.Regenarted_Token }}
       run: |
         mkdir -p ~/.ssh/
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
