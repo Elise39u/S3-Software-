@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SongOverview from './pages/SongOverview'
 import SongUploadForm from "./pages/AddSong";
+import SongInfo from "./pages/SongInfo";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route index element={<SongOverview />} />
+                <Route path="/InfoSong" element={<SongInfo/>} />
                 <Route path="/Schets" element={<App />} />
                 <Route path="/AddSong" element={<SongUploadForm />} />
             </Routes>

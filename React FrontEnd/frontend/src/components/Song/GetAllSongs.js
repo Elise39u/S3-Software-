@@ -5,8 +5,11 @@ import TrashCan from "../../img/svgIcons/gui-trash-svgrepo-com.svg"
 import EditSongModal from "./EditSongModal"
 import DeleteSong from "./DeleteSong";
 import Info from "../../img/svgIcons/information-circle-svgrepo-com.svg"
+import { Navigate } from "react-router-dom";
 
 class GetAllSongs extends React.Component {
+    //navigate;
+
     constructor(props) {
         super(props);
 
@@ -17,7 +20,19 @@ class GetAllSongs extends React.Component {
             showDeleteModal: false,
             selectedSong: 0
         };
+
         this.updateSongList = this.updateSongList.bind(this);
+    }
+
+    handleInfoSongClick = (event, song) => {
+        event.preventDefault();
+
+        const propsToSend = {
+            song
+        };
+
+        console.log(propsToSend)
+        //this.navigate('/InfoSong', { state: propsToSend });
     }
 
     updateSongList(newSongList) {
@@ -73,33 +88,31 @@ class GetAllSongs extends React.Component {
             <div>
                 <h1 className="introText">Found the following songs for you in the libary</h1>
                 <div className="Songview flex-container">
-                {
-                    this.state.songs.map((song) => {
-                        //Add <a link that adds as get request song for to the div> with help of song.songId
-                        //Add also later vocaloid images instead of their names.
-                            return(
-                            <div className="mainView" key={song.songId}>
-                                <div className="songJacket">
-                                    <div className="jacket">
-                                        <img className="jacketImg" alt="album jacket" src={song.songAlbumImg}/>
-                                        <img className={"svgImages pencil"} src={Pencil}  alt={"edit the song"} onClick={this.handleEditModalOpen.bind(this, song.songId)}/>
-                                        <img className={"svgImages trashcan"} src={TrashCan}  alt={"delete the song"} onClick={this.handleDeleteModalOpen.bind(this, song.songId)}/>
-                                        <img className={"svgImages info"} src={Info}  alt={"info about the song"}/>
-                                    </div>
-                                </div>
-                                <div className="musicName">
-                                    <span><b>Song name: {song.songName}</b></span>
-                                </div>
-                                <div className="musicProducer">
-                                    <span><b>Song producer: {song.songProducer === "" ? "No producer found" : song.songProducer}</b></span>
-                                </div>
-                                <div className="diffcultys">
-                                    <span>*</span>
-                                    {song.songDifficulties.length !== 0 ? song.songDifficulties.map((difficulty, index) => (
-                                            <span
-                                                key={index}
-                                                className={`${
-                                                    difficulty.difficultyId === 1
+                    {
+                        this.state.songs.map((song) => {
+                                //Add <a link that adds as get request song for to the div> with help of song.songId
+                                //Add also later vocaloid images instead of their names.
+                                return(
+                                    <div className="mainView" key={song.songId}>
+                                        <div className="songJacket">
+                                            <div className="jacket">
+                                                <img className="jacketImg" alt="album jacket" src={song.songAlbumImg}/>
+                                                <img className={"svgImages pencil"} src={Pencil}  alt={"edit the song"} onClick={this.handleEditModalOpen.bind(this, song.songId)}/>
+                                                <img className={"svgImages trashcan"} src={TrashCan}  alt={"delete the song"} onClick={this.handleDeleteModalOpen.bind(this, song.songId)}/>
+                                                <img className={"svgImages info"} src={Info} alt={"info about the song"} onClick={() => <Navigate to="/InfoSong" state={{songInfo: song}}/>}/>
+                                            </div>
+                                        </div>
+                                        <div className="musicName">
+                                            <span><b>Song name: {song.songName}</b></span>
+                                        </div>
+                                        <div className="musicProducer">
+                                            <span><b>Song producer: {song.songProducer === "" ? "No producer found" : song.songProducer}</b></span>
+                                        </div>
+                                        <div className="diffcultys">
+                                            <span>*</span>
+                                            {song.songDifficulties.length !== 0 ? (
+                                                song.songDifficulties.map((difficulty, index) => {
+                                                    const difficultyClass = difficulty.difficultyId === 1
                                                         ? "easy"
                                                         : difficulty.difficultyId === 2
                                                             ? "normal"
@@ -109,56 +122,62 @@ class GetAllSongs extends React.Component {
                                                                     ? "extreme"
                                                                     : difficulty.difficultyId === 5
                                                                         ? "extraExtreme"
-                                                                        : ""
-                                                }`}
-                                                >{difficulty.difficultyRating === 0 ? "-" : difficulty.difficultyRating} </span>
-                                        )) : (
-                                        <>
-                                            <span className="easy">-</span>
-                                            <span className="normal">-</span>
-                                            <span className="hard">-</span>
-                                            <span className="extreme">-</span>
-                                            <span className="extraExtreme">-</span>
-                                        </>
-                                    )}
+                                                                        : "";
+                                                    const difficultyRating = difficulty.difficultyRating === 0 ? "-" : difficulty.difficultyRating;
+
+                                                    return (
+                                                        <span key={index} className={difficultyClass}>
+        {difficultyRating}
+      </span>
+                                                    );
+                                                })
+                                            ) : (
+                                                <>
+                                                    <span className="easy">-</span>
+                                                    <span className="normal">-</span>
+                                                    <span className="hard">-</span>
+                                                    <span className="extreme">-</span>
+                                                    <span className="extraExtreme">-</span>
+                                                </>
+                                            )}
 
 
-                                </div>
-                                <div className="vocals">
-                                    <span>Vocals:</span>
-                                    <div className="vocalFirst">
-                                        <b>{song.songArtist}</b>
+                                        </div>
+                                        <div className="vocals">
+                                            <span>Vocals:</span>
+                                            <div className="vocalFirst">
+                                                <b>{song.songArtist}</b>
+                                            </div>
+                                        </div>
+
+                                        {this.state.showEditModal && this.state.selectedSong === song.songId && (
+                                            <EditSongModal
+                                                showModal={this.state.showEditModal}
+                                                handleEditClose={this.handleEditModalClose}
+                                                songId={song.songId}
+                                                songName={song.songName}
+                                                songGame={song.songGame}
+                                                songArtist={song.songArtist}
+                                                songAlbumImg={song.songAlbumImg}
+                                                songAlbumName={song.songAlbumName}
+                                                songProducer={song.songProducer}
+                                                songDifficulties={song.songDifficulties}
+                                                updateSongList={this.updateSongList}
+                                            />
+                                        )}
+                                        {this.state.showDeleteModal && this.state.selectedSong === song.songId && (
+                                            <DeleteSong
+                                                showModal={this.state.showDeleteModal}
+                                                handleDeleteClose={this.handleDeleteModalClose}
+                                                songId={song.songId}
+                                                songName={song.songName}
+                                                updateSongList={this.updateSongList}
+                                            />
+                                        )}
                                     </div>
-                                </div>
-
-                                {this.state.showEditModal && this.state.selectedSong === song.songId && (
-                                    <EditSongModal
-                                        showModal={this.state.showEditModal}
-                                        handleEditClose={this.handleEditModalClose}
-                                        songId={song.songId}
-                                        songName={song.songName}
-                                        songGame={song.songGame}
-                                        songArtist={song.songArtist}
-                                        songAlbumImg={song.songAlbumImg}
-                                        songAlbumName={song.songAlbumName}
-                                        songProducer={song.songProducer}
-                                        songDifficulties={song.songDifficulties}
-                                        updateSongList={this.updateSongList}
-                                    />
-                                )}
-                                {this.state.showDeleteModal && this.state.selectedSong === song.songId && (
-                                    <DeleteSong
-                                        showModal={this.state.showDeleteModal}
-                                        handleDeleteClose={this.handleDeleteModalClose}
-                                        songId={song.songId}
-                                        songName={song.songName}
-                                        updateSongList={this.updateSongList}
-                                    />
-                                )}
-                            </div>
-                            )
-                        }
-                    )}
+                                )
+                            }
+                        )}
                 </div>
             </div>
         )

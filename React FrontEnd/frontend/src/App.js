@@ -1,5 +1,5 @@
 import Menu from './components/NavMenu'
-import SongInfo from './components/SongInfo'
+import SongDetails from './components/SongDetails'
 import SongSummary from './components/SongSummary'
 import './css/Song/SongOverview.css'
 
@@ -8,7 +8,7 @@ function App() {
     <div>
       <Menu />
         <h1 className="songTitle"> Odds and Ends</h1>
-        <SongInfo/>
+        <SongDetails/>
         <SongSummary/>
     </div>
   );

@@ -4,7 +4,7 @@ import Album from '../img/OddsandEndsAlbumCover.png'
 import Miku from '../img/OddsandEndsMiku.png'
 import Logo from '../img/OddsandEndsLogo.png'
 
-class SongInfo extends React.Component {
+class SongDetails extends React.Component {
     render() {
         return(
             <div>
@@ -28,4 +28,4 @@ class SongInfo extends React.Component {
     }
 }
 
-export default SongInfo
+export default SongDetails

@@ -48,17 +48,21 @@ public class SongHandler : ISongHandler
 
     public SongModel getSongById(int songId)
     {
-        return _dbContext.Songs.FirstOrDefault(song => song.SongId == songId);
+        return _dbContext.Songs.Include(s => s.SongDifficulties)
+            .FirstOrDefault(song => song.SongId == songId);
     }
 
     public SongModel getSongByName(string songName)
     {
-        return _dbContext.Songs.FirstOrDefault(song => song.SongName == songName);
+        return _dbContext.Songs.Include(s => s.SongDifficulties)
+            .FirstOrDefault(song => song.SongName == songName);
     }
 
     public List<SongModel> getSongByArtist(string songArtist)
     {
-        return _dbContext.Songs.Where(sa => sa.SongArtist == songArtist).ToList();
+        return _dbContext.Songs.Where(sa => sa.SongArtist == songArtist)
+            .Include(s => s.SongDifficulties)
+            .ToList();
     }
 
     public List<SongModel> getAllSongs()

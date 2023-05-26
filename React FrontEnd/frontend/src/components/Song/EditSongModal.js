@@ -121,8 +121,10 @@ function EditSongModal (props){
         formData.append("songArtist", songArtist);
         formData.append("songAlbumImg", songAlbumImg);
         formData.append("songAlbumName", songAlbumName);
-        formData.append("songProducer", songProducer)
+        formData.append("songProducer", songProducer);
+        formData.append("songDifficulties", songDifficulties)
 
+        console.log(formData)
         fetch("https://localhost:7261/Song", {
             method: "PUT",
             headers: {
