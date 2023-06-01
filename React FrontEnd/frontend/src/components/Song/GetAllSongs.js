@@ -108,7 +108,7 @@ class GetAllSongs extends React.Component {
                                         <div className="musicProducer">
                                             <span><b>Song producer: {song.songProducer === "" ? "No producer found" : song.songProducer}</b></span>
                                         </div>
-                                        <div className="diffcultys">
+                                        <div className="difficulties">
                                             <span>*</span>
                                             {song.songDifficulties.length !== 0 ? (
                                                 song.songDifficulties.map((difficulty, index) => {

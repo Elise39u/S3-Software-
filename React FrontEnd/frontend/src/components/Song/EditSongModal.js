@@ -124,7 +124,6 @@ function EditSongModal (props){
         formData.append("songProducer", songProducer);
         formData.append("songDifficulties", songDifficulties)
 
-        console.log(formData)
         fetch("https://localhost:7261/Song", {
             method: "PUT",
             headers: {
@@ -191,13 +190,13 @@ function EditSongModal (props){
                     <Form.Group controlId="song album-img">
                         <Form.Label>Album Name</Form.Label>
                         <Form.Control type="file" placeholder="Upload  the album image here" onChange={handleSongAlbumImgChange} />
-                        <i> Current image preview </i> <br />
+                        <i> Current Album image preview </i> <br />
                         <img className={"previewImg"} src={songAlbumImg} alt={"albumImg"}/>
                     </Form.Group>
                     <Form.Group controlId="song album-name">
                         <Form.Label>Album Name</Form.Label>
                         <Form.Control type="file" placeholder="Upload  the album logo  here" value={typeof songAlbumName !== 'string' ? songAlbumName : ""} onChange={handleSongNameChange}/>
-                        <i> Current image preview </i> <br />
+                        <i> Current Album logo preview </i> <br />
                         <img className={"previewImg"} src={songAlbumName} alt={"albumImg"}/>
                     </Form.Group>
                 <Form.Group controlId="song producer">
@@ -205,59 +204,89 @@ function EditSongModal (props){
                     <Form.Control type="text" placeholder="Enter the songs producer" value={songProducer} onChange={(e) => setSongProducer(e.target.value)}/>
                 </Form.Group>
                     <br/>
-                    <Form.Group className={"difficulties"}>
+                    <Form.Group className={"difficulties editDiff"}>
                         <Form.Label >
                             <span className={"easy"}>Easy</span>
                             <Form.Control
                                 type="number"
                                 placeholder="Fill in the star rating of the song here. Leave it empty for -"
                                 value={easyDifficulty.Rating === 0 ? 0 : easyDifficulty.Rating}
-                                onChange={(e) =>
-                                    setEasyDifficulty({id: easyDifficulty.id, Rating: Number(e.target.value)})}
+                                onChange={(e) =>{
+                                    const rating = parseFloat(e.target.value);
+
+                                    if (!isNaN(rating) && rating >= 0 && rating <= 15) {
+                                        setEasyDifficulty({ id: easyDifficulty.id, Rating: rating });
+                                    } else {
+                                        setEasyDifficulty({ id: easyDifficulty.id, Rating: 0 });
+                                    }}}
                             />
                         </Form.Label>
                     </Form.Group>
-                    <Form.Group className={"difficulties"}>
+                    <Form.Group className={"difficulties editDiff"}>
                         <Form.Label >
                             <span className={"normal"}> Normal </span>
                             <Form.Control type="number"
                                           placeholder="Fill in the star rating of the song here. Leave it empty for -"
                                           value={normalDifficulty.Rating === 0 ? 0 : normalDifficulty.Rating}
-                                          onChange={(e) =>
-                                              setNormalDifficulty({id: normalDifficulty.id, Rating: Number(e.target.value)})}>
+                                          onChange={(e) =>{
+                                              const rating = parseFloat(e.target.value);
+
+                                              if (!isNaN(rating) && rating >= 0 && rating <= 15) {
+                                                  setNormalDifficulty({ id: normalDifficulty.id, Rating: rating });
+                                              } else {
+                                                  setNormalDifficulty({ id: normalDifficulty.id, Rating: 0 });
+                                              }}}>
                             </Form.Control>
                         </Form.Label>
                     </Form.Group>
-                    <Form.Group className={"difficulties"}>
+                    <Form.Group className={"difficulties editDiff"}>
                         <Form.Label >
                             <span className={"hard"}>Hard</span>
                             <Form.Control type="number"
                                 placeholder="Fill in the star rating of the song here. Leave it empty for -"
                                 value={hardDifficulty.Rating === 0 ? 0 : hardDifficulty.Rating}
-                                onChange={(e) =>
-                                    setHardDifficulty({id: hardDifficulty.id, Rating: Number(e.target.value)})}>
+                                onChange={(e) =>{
+                                    const rating = parseFloat(e.target.value);
+
+                                    if (!isNaN(rating) && rating >= 0 && rating <= 15) {
+                                        setHardDifficulty({ id: hardDifficulty.id, Rating: rating });
+                                    } else {
+                                        setHardDifficulty({ id: hardDifficulty.id, Rating: 0 });
+                                    }}}>
                             </Form.Control>
                         </Form.Label>
                     </Form.Group>
-                    <Form.Group className={"difficulties"}>
+                    <Form.Group className={"difficulties editDiff"}>
                         <Form.Label >
                             <span className={"extreme"}>Extreme</span>
                             <Form.Control type="number"
                                           placeholder="Fill in the star rating of the song here. Leave it empty for -"
                                           value={extremeDifficulty.Rating === 0 ? 0 : extremeDifficulty.Rating}
-                                          onChange={(e) =>
-                                    setExtremeDifficulty({id: extremeDifficulty.id, Rating: Number(e.target.value)})}>
+                                          onChange={(e) =>{
+                                              const rating = parseFloat(e.target.value);
+
+                                              if (!isNaN(rating) && rating >= 0 && rating <= 15) {
+                                                  setExtremeDifficulty({ id: extremeDifficulty.id, Rating: rating });
+                                              } else {
+                                                  setExtremeDifficulty({ id: extremeDifficulty.id, Rating: 0 });
+                                              }}}>
                             </Form.Control>
                         </Form.Label>
                     </Form.Group>
-                    <Form.Group className={"difficulties"}>
+                    <Form.Group className={"difficulties editDiff"}>
                         <Form.Label >
                             <span className={"extraExtreme"}> Extra Extreme</span>
                             <Form.Control type="number"
                                 placeholder="Fill in the star rating of the song here. Leave it empty for -"
                                 value={extraExtremeDifficulty.Rating === 0 ? 0 : extraExtremeDifficulty.Rating}
-                                onChange={(e) =>
-                                    setExtraExtremeDifficulty({id: extraExtremeDifficulty.id, Rating: Number(e.target.value)})}>
+                                onChange={(e) => {
+                                    const rating = parseFloat(e.target.value);
+
+                                    if (!isNaN(rating) && rating >= 0 && rating <= 15) {
+                                        setExtraExtremeDifficulty({ id: extraExtremeDifficulty.id, Rating: rating });
+                                    } else {
+                                        setExtraExtremeDifficulty({ id: extraExtremeDifficulty.id, Rating: 0 });
+                                    }}}>
                             </Form.Control>
                         </Form.Label>
                     </Form.Group>
