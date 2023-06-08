@@ -6,7 +6,30 @@ Alleen de taken die zijn geplanned waren:
 1. Taak 1 het toevoegen van een song aan de applicatie (Add song) (Ook liet ik de mensen de songs vooraf kiezen omdat tegen te gaan)      
 1. Taak 2 Toevoegen van difficulties. (Dit touched Edit song aangezien op toevoegen je het id mist voor difficulties)      
 1. Taak 3 Deleten van je toegevoegde song (Dit touched de delete functie)      
-       
+        
+#Links naar de testen
+Door github file size limit heb ik de testen geupload als verbogen links op youtube.         
+*Een notitie door een fout bij Elif zijn eerste test zijn op sommige testen de chrome task te zien.    
+Was het vergeten uit te zetten*        
+De links kan je hieronder vinden:     
+## Alco     
+[Alco Taak 1 Add song](https://www.youtube.com/watch?v=WoVxjpGrTVs)        
+[Alco Taak 2 Add difficulties](https://www.youtube.com/watch?v=rioJuYDTFWk)        
+[Alco Taak 3 Delete song](https://www.youtube.com/watch?v=M59nwtN7pXQ)      
+## Linsday         
+[Lindsay Taak 1 Add Song](https://www.youtube.com/watch?v=XNcejmMUqBw)        
+[Lindsay Taak 2 Add difficulties](https://www.youtube.com/watch?v=OZduiyepJI4)      
+[Lindsay Taak 3 Delete Song](https://www.youtube.com/watch?v=VMG4HsN4JFQ)       
+## Elif       
+[First try with Elif. Met hem probeerde ik de teste als eerste vandaar de fouten](https://www.youtube.com/watch?v=tnFUQEEn-Ew)        
+[Elif Taak 1 Add Song](https://www.youtube.com/watch?v=Fg0jkIaH7ic)        
+[Elif Taak 2 Add difficulties](https://www.youtube.com/watch?v=qoFZ554cGQU)         
+[Elif Taak 3 Delete Song](https://www.youtube.com/watch?v=u8lg6eqSK5g)       
+## Lilliya      
+[Lilliya Taak 1 Add Song](https://www.youtube.com/watch?v=aRR3bjYEwVQ)        
+[Lilliya Taak 2 Add difficulties](https://www.youtube.com/watch?v=31x-Wamq-_A)         
+[Lilliya Taak 3 Delete Song](https://www.youtube.com/watch?v=9unYgxrOQTs)        
+         
 Uit dit kwamen natuurlijk een aantal punten naar voren die mij opvielen maar ook me testers.     
 Laat ik de punten is per kopje bespreken    
 # Feedback van testers
