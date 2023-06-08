@@ -12,6 +12,7 @@ function SongUploadForm() {
     const [songAlbumName, setSongAlbumName] = useState(null);
     const[songProducer, setSongProducer] = useState("");
     const [songGame, setSongGame] = useState("");
+    const [songDifficulties] = useState([])
 
     //Modal States
     const [showModal, setModalShow] = useState(false);
@@ -66,7 +67,6 @@ function SongUploadForm() {
         formData.append("songAlbumName", songAlbumName);
         formData.append("songProducer", songProducer);
 
-        console.log(formData)
         fetch("https://localhost:7261/Song", {
             method: "POST",
             headers: {
@@ -78,7 +78,8 @@ function SongUploadForm() {
                 songArtist,
                 songAlbumImg,
                 songAlbumName,
-                songProducer
+                songProducer,
+                songDifficulties
             })
         })
             .then((response) => {
